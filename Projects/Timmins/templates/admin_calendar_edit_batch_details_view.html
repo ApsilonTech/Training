@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <!-- META ============================================= -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="" />
+
+   <!-- DESCRIPTION -->
+   <meta name="description" content="" />
+
+   <!-- OG -->
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta name="format-detection" content="telephone=no">
+
+    <!--------FAVICON------------------------->
+    <link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+   <!-- PAGE TITLE HERE ============================================= -->
+   <title>Timmins: admin-calendar-edit-batch-details </title>
+
+   <!-- MOBILE SPECIFIC ============================================= -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--[if lt IE 9]>
+   <script src="static/assets/js/html5shiv.min.js"></script>
+   <script src="static/assets/js/respond.min.js"></script>
+   <![endif]-->
+
+   <!-- All PLUGINS CSS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/admin-assets.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/vendors/calendar/fullcalendar.css">
+
+   <!-- TYPOGRAPHY ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/admin-typography.css">
+
+   <!-- SHORTCODES ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/admin-shortcodes.css">
+
+   <!-- STYLESHEETS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/admin-style.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/admin-dashboard.css">
+   <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/admin-color-1.css">
+   <style>
+      table{
+         border-collapse: collapse;
+         width: 100%;
+      }
+      td, th{
+         text-align: left;
+         padding: 8px;
+      }
+      tr:nth-child(even){
+         background-color: #dddddd;
+      }
+
+      @media (max-width: 767px) {
+        #daily-form-group, #weekly-form-group, #monthly-form-group, #day-row{
+            margin-left: 8px;
+        }
+        #daily-input-group, #weekly-input-group, #monthly-input-group{
+            margin-left: 8px;
+        }
+      }
+
+      #recurrence_start_time, #recurrence_duration{
+        color: black;
+      }
+   </style>
+</head>
+<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+
+   <!-- header start -->
+   <header class="ttr-header">
+      <div class="ttr-header-wrapper">
+         <!--sidebar menu toggler start -->
+         <div class="ttr-toggle-sidebar ttr-material-button">
+            <i class="ti-close ttr-open-icon"></i>
+            <i class="ti-menu ttr-close-icon"></i>
+         </div>
+         <!--sidebar menu toggler end -->
+         <!--logo start -->
+
+         <!--logo end -->
+         <div class="ttr-header-menu">
+            <!-- header left menu start -->
+            <ul class="ttr-header-navigation">
+               <li>
+                  <a href="/" class="ttr-material-button ttr-submenu-toggle">HOME</a>
+               </li>
+
+            </ul>
+            <!-- header left menu end -->
+         </div>
+         <div class="ttr-header-right ttr-with-seperator">
+            <!-- header right menu start -->
+
+            <!-- header right menu end -->
+         </div>
+         <!--header search panel start -->
+         <div class="ttr-search-bar">
+            <form class="ttr-search-form">
+               <div class="ttr-search-input-wrapper">
+                  <input type="text" name="qq" placeholder="search something..." class="ttr-search-input">
+                  <button type="submit" name="search" class="ttr-search-submit"><i class="ti-arrow-right"></i></button>
+               </div>
+               <span class="ttr-search-close ttr-search-toggle">
+                  <i class="ti-close"></i>
+               </span>
+            </form>
+         </div>
+         <!--header search panel end -->
+      </div>
+   </header>
+   <!-- header end -->
+   <!-- Left sidebar menu start -->
+   <div class="ttr-sidebar">
+      <div class="ttr-sidebar-wrapper content-scroll">
+         <!-- side menu logo start -->
+         <div class="ttr-sidebar-logo">
+            <a href="/"><img alt="" src="static/assets/timmins_images/logo.png" width="70" height="15"></a>
+            <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
+               <i class="material-icons ttr-fixed-icon">gps_fixed</i>
+               <i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
+            </div> -->
+            <div class="ttr-sidebar-toggle-button">
+               <i class="ti-arrow-left"></i>
+            </div>
+         </div>
+         <!-- side menu logo end -->
+         <!-- sidebar menu start -->
+         <nav class="ttr-sidebar-navi">
+            <ul>
+               <li>
+                  <a href="/admin_panel?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-home"></i></span>
+                         <span class="ttr-label">Dashboard</span>
+                      </a>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-plus"></i></span>
+                         <span class="ttr-label">Domains</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_domain_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_domain_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Courses</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_new_course_upload?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_courses_main?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                         <span class="ttr-label">Training Calendar</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                     <li>
+                            <a href="/admin_training_calendar_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                     <li>
+                            <a href="/admin_calendar_list_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_basic_calendar?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-calendar"></i>&nbsp;Calendar View</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Users</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                      <li>
+                         <a href="/admin_user_display_list?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Display Users</span></a>
+                      </li>
+                     <li>
+                        <a href="/admin_user_calendar_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;&nbsp;Create User Calendar</span></a>
+                     </li>
+                      <li>
+                         <a href="/admin_event_users_mapping?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Event Users Mapping</span></a>
+                      </li>
+                  </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Certification Programs</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_certification_create_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_certification_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="/admin_banner_creation?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                     <span class="ttr-label">Banner</span>
+                  </a>
+               </li>
+                <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-comment"></i></span>
+                     <span class="ttr-label">Testimonials</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_testimonial_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_testimonial_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      <li>
+                            <a href="/admin_testimonial_for_individual_course_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Create for Individual courses</span></a>
+                         </li>
+                        <li>
+                            <a href="/admin_testimonial_for_individual_course_edition?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit for Individual courses</span></a>
+                         </li>
+                      </ul>
+               </li>
+                <li>
+                   <a href="/admin_seo?email_person=admin" class="ttr-material-button">
+                      <span class="ttr-icon"><i class="ti-book"></i></span>
+                      <span class="ttr-label">SEO Code</span>
+                   </a>
+                </li>
+               <li>
+                  <a href="/admin_user_profile?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Profile</span>
+                      </a>
+                  </li>
+
+
+                  <li class="ttr-seperate"></li>
+            </ul>
+            <!-- sidebar menu end -->
+         </nav>
+         <!-- sidebar menu end -->
+      </div>
+   </div>
+   <!-- Left sidebar menu end -->
+
+   <!--Main container start -->
+   <main class="ttr-wrapper">
+      <div class="container-fluid">
+         <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+               <div class="widget-box">
+                  <div class="wc-title row">
+                      <h2 style="font-size: 30px;margin-bottom: 20px;">
+                          Edit Individual Batch Details
+                      </h2>
+                  </div>
+                  <div class="wc-title row">
+                     <div class="col-lg-10 col-sm-10">
+                        <h3 style="font-size:25px;">{{event_name}}<span style="font-size: 22px; font-style:italic;"> - {{batch_name}}</span></h3>
+                     </div>
+                      <div class="col-lg-2 col-md-2">
+                          <form action="/admin_calendar_edit_batches_list?email_person=admin" method="post">
+                              <button type="submit" name="event_id" value="{{event_id}}" style="padding: 5px; border-radius:5px;">
+                                  Go Back
+                              </button>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="widget-inner">
+                      <form action="/admin_calendar_batch_details?email_person=admin" method="post" enctype="multipart/form-data">
+                          <input type="hidden" name="event_id" value="{{event_id}}">
+                          <input type="hidden" name="batch_id" value="{{batch_id}}">
+                          <div class="row placeani">
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <label>Location</label>
+                               </div>
+                            </div>
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <div class="input-group">
+                                     <input type="text" name="location" id="location" value="{{batch_details[4]}}" required>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <label>Event Fee</label>
+                               </div>
+                            </div>
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <div class="input-group">
+                                     <input type="text" name="event_fee" id="event_fee" value="{{batch_details[6]}}">
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                          <div class="row placeani">
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <label>Timezone</label>
+                               </div>
+                            </div>
+                            <div class="col-lg-3">
+                               <div class="form-group">
+                                  <div class="input-group">
+                                      <select name="timezone" id="timezone" required style="height:30px; cursor:pointer;">
+                                          <option value="{{batch_details[5]}}" selected>{{batch_details[5]}}</option>
+                                         {% for shortform_loop in timezone_shortform %}
+                                          <option value="{{shortform_loop[0]}}">{{shortform_loop[0]}}</option>
+                                          {% endfor %}
+                                    </select>
+                                  </div>
+                               </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                                  <div class="form-group">
+                                    <label>Captured Moments</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3">
+                                    <div class="form-group">
+                                      <div class="input-group">
+                                          <input type="file" id="images_upload" name="image_upload" accept="image/*" multiple>
+                                      </div>
+                                   </div>
+                              </div>
+                              <input id="images_link" name="image_link" type="hidden">
+                                <script>
+                                    const fileUpload = document.getElementById("images_upload");
+                                    const imageLinkInput = document.getElementById("images_link");
+
+                                       fileUpload.addEventListener("change", function() {
+                                       const fileNames = [];
+                                       for (let i = 0; i < fileUpload.files.length; i++) {
+                                         fileNames.push("static/assets/images/expired_events_images/" + fileUpload.files[i].name);
+                                       }
+                                       const imagePaths = fileNames.join(", ");
+                                       imageLinkInput.value = imagePaths;
+                                     });
+                                </script>
+                         </div>
+                          <div class="row placeani">
+                            <div class="col-lg-3 col-md-3">
+                                    <div class="form-group">
+                                      <label>Batch Enabling Status</label>
+                                    </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3">
+                                  <div class="form-group">
+                                      <div class="input-group">
+                                         <select id="batch_enabling_status" name="batch_enabling_status" style="border-color:solid 1px;height:30px;min-width:100px;" required>
+                                            {% if batch_details[9] == 'Enable' %}
+                                                <option value="Enable" selected>Enable</option>
+                                                <option value="Disable">Disable</option>
+                                            {% elif batch_details[9] == 'Disable' %}
+                                                <option value="Enable">Enable</option>
+                                                <option value="Disable" selected>Disable</option>
+                                            {% endif %}
+                                         </select>
+                                      </div>
+                                   </div>
+                              </div>
+                                  <div class="col-lg-3 col-md-3">
+                               <div class="form-group">
+                                  <label>Start Date</label>
+                               </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3">
+                               <div class="form-group">
+                                  <div class="input-group">
+                                     <input type="date" name="start_date" id="start_date" value="{{batch_details[10]}}" required>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                          <div class="row placeani">
+                              <div class="col-lg-3">
+                                  <input type="radio" id="recurring_meeting" name="meeting" value="recurring" onclick="radioFunc(this)" required>
+                                  <label for="recurring_meeting">Recurring meeting</label>
+                              </div>
+                              <div class="col-lg-3">
+                                  <input type="radio" id="individual_meeting" name="meeting" value="individual" onclick="radioFunc(this)" required>
+                                  <label for="individual_meeting">Individual meeting</label>
+                              </div>
+                          </div><br>
+
+                          <div id="recurringDiv" style="display: none; border: 2px solid; border-radius: 5px; padding:10px;">
+                              <div class="row placeani">
+                                  <div class="col-lg-3">
+                                      <div class="form-group">
+                                          <label>Recurrence</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                       <div class="form-group">
+                                          <div class="input-group">
+                                             <select name="recurrence" id="recurrence" style="width:200px; height:30px; cursor:pointer;" onclick="recurrenceFunc()">
+                                                 <option selected disabled value="">Select Recurrence</option>
+                                                 <option value="Daily">Daily</option>
+                                                 <option value="Weekly">Weekly</option>
+                                                 <option value="Monthly">Monthly</option>
+                                             </select>
+                                          </div>
+                                       </div>
+                                  </div>
+                              </div>
+                              <div class="row placeani">
+                                  <div class="col-lg-3">
+                                        <label class="col-form-label">
+                                           Start Time
+                                       </label>
+                                  </div>
+                                  <div class="col-lg-3">
+                                       <input class="form-control" type="time" name="recurrence_start_time" id="recurrence_start_time" style="background-color: #dddddd;">
+                                   </div>
+                                  <div class="col-lg-3">
+                                       <label class="col-form-label">
+                                           Session Duration
+                                       </label><br>
+                                      <span>(Eg.: 4 hours or 4.5 hours)</span>
+                                  </div>
+                                  <div class="col-lg-3">
+                                      <input class="form-control" type="text" name="recurrence_duration" id="recurrence_duration" style="background-color: #dddddd;">
+                                  </div>
+                              </div> <br>
+                              <div class="row" id="dailyDiv" style="display:none;">
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>Repeat Every</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                           <div class="form-group" id="daily-form-group">
+                                                 <select name="repeat_days" id="repeatDays" style="width:250px; height:30px; cursor:pointer;">
+                                                     <option selected disabled value="">Select how many days once</option>
+                                                     <option value="1">1</option>
+                                                     <option value="2">2</option>
+                                                     <option value="3">3</option>
+                                                     <option value="4">4</option>
+                                                     <option value="5">5</option>
+                                                     <option value="6">6</option>
+                                                     <option value="7">7</option>
+                                                     <option value="8">8</option>
+                                                     <option value="9">9</option>
+                                                     <option value="10">10</option>
+                                                     <option value="11">11</option>
+                                                     <option value="12">12</option>
+                                                     <option value="13">13</option>
+                                                     <option value="14">14</option>
+                                                     <option value="15">15</option>
+                                                     <option value="16">16</option>
+                                                     <option value="17">17</option>
+                                                     <option value="18">18</option>
+                                                     <option value="19">19</option>
+                                                     <option value="20">20</option>
+                                                     <option value="21">21</option>
+                                                     <option value="22">22</option>
+                                                     <option value="23">23</option>
+                                                     <option value="24">24</option>
+                                                     <option value="25">25</option>
+                                                     <option value="26">26</option>
+                                                     <option value="27">27</option>
+                                                     <option value="28">28</option>
+                                                     <option value="29">29</option>
+                                                     <option value="30">30</option>
+                                                     <option value="31">31</option>
+                                                 </select><label>&nbsp; Days</label>
+                                           </div>
+                                      </div>
+                                  </div>
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>End Date</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6" id="dailyDate">
+                                          <div class="form-group">
+                                              <div class="input-group" id="daily-input-group">
+                                                 <input type="date" name="daily_end_date" id="dailyEndDate" style="margin-left:8px;">
+                                              </div>
+                                           </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row" id="weeklyDiv" style="display:none;">
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>Repeat Every</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                           <div class="form-group" id="weekly-form-group">
+                                                 <select name="repeat_weeks" id="repeatWeeks" style="width:250px; height:30px; cursor:pointer;">
+                                                     <option selected disabled value="">Select how many weeks once</option>
+                                                     <option value="1">1</option>
+                                                     <option value="2">2</option>
+                                                     <option value="3">3</option>
+                                                     <option value="4">4</option>
+                                                     <option value="5">5</option>
+                                                 </select><label>&nbsp; Weeks</label>
+                                           </div>
+                                      </div>
+                                  </div>
+                                  <div class="row" style="text-indent: 17px;" id="day-row">
+                                      <div class="col">
+                                        <input type="checkbox" id="sunday" name="day" value="Sun">
+                                        <label for="sunday">Sun</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="monday" name="day" value="Mon">
+                                        <label for="monday">Mon</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="tuesday" name="day" value="Tue">
+                                        <label for="tuesday">Tue</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="wednesday" name="day" value="Wed">
+                                        <label for="wednesday">Wed</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="thursday" name="day" value="Thu">
+                                        <label for="thursday">Thu</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="friday" name="day" value="Fri">
+                                        <label for="friday">Fri</label>
+                                      </div>
+                                      <div class="col">
+                                        <input type="checkbox" id="saturday" name="day" value="Sat">
+                                        <label for="saturday">Sat</label>
+                                      </div>
+                                  </div> <br>
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>End Date</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6" id="weeklyDate">
+                                          <div class="form-group">
+                                              <div class="input-group" id="weekly-input-group">
+                                                 <input type="date" name="weekly_end_date" id="weeklyEndDate" style="margin-left:8px;">
+                                              </div>
+                                           </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row" id="monthlyDiv" style="display:none;">
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>Repeat Every</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                           <div class="form-group" id="monthly-form-group">
+                                                 <select name="repeat_months" id="repeatMonths" style="width:260px; height:30px; cursor:pointer;">
+                                                     <option selected disabled value="">Select how many months once</option>
+                                                     <option value="1">1</option>
+                                                     <option value="2">2</option>
+                                                     <option value="3">3</option>
+                                                     <option value="4">4</option>
+                                                     <option value="5">5</option>
+                                                     <option value="6">6</option>
+                                                     <option value="7">7</option>
+                                                     <option value="8">8</option>
+                                                     <option value="9">9</option>
+                                                     <option value="10">10</option>
+                                                     <option value="11">11</option>
+                                                     <option value="12">12</option>
+                                                 </select><label>&nbsp; Months</label>
+                                           </div>
+                                      </div>
+                                  </div>
+                                  <div class="row" style="text-indent: 8px;">
+                                      <div class="col-lg-3">
+                                          <div class="form-group">
+                                              <label>End Date</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-6" id="monthlyDate">
+                                          <div class="form-group">
+                                              <div class="input-group" id="monthly-input-group" style="text-indent: 8px;">
+                                                 <input type="date" name="monthly_end_date" id="monthlyEndDate" style="margin-left:8px;">
+                                              </div>
+                                           </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <script>
+                                  function recurrenceFunc(){
+                                     var recurDetail = document.getElementById("recurrence").value
+                                     if (recurDetail === "Daily"){
+                                        document.getElementById("dailyDiv").style.display = "block";
+                                        document.getElementById("weeklyDiv").style.display = "none";
+                                        document.getElementById("monthlyDiv").style.display = "none";
+
+                                        document.getElementById("repeatDays").required = true;
+                                        document.getElementById("dailyEndDate").required = true;
+                                        document.getElementById("repeatWeeks").required = false;
+                                        document.getElementById("weeklyEndDate").required = false;
+                                        document.getElementById("repeatMonths").required = false;
+                                        document.getElementById("monthlyEndDate").required = false;
+                                     } else if (recurDetail === "Weekly"){
+                                        document.getElementById("dailyDiv").style.display = "none";
+                                        document.getElementById("weeklyDiv").style.display = "block";
+                                        document.getElementById("monthlyDiv").style.display = "none";
+
+                                        document.getElementById("repeatDays").required = false;
+                                        document.getElementById("dailyEndDate").required = false;
+                                        document.getElementById("repeatWeeks").required = true;
+                                        document.getElementById("weeklyEndDate").required = true;
+                                        document.getElementById("repeatMonths").required = false;
+                                        document.getElementById("monthlyEndDate").required = false;
+                                     } else if (recurDetail === "Monthly"){
+                                        document.getElementById("dailyDiv").style.display = "none";
+                                        document.getElementById("weeklyDiv").style.display = "none";
+                                        document.getElementById("monthlyDiv").style.display = "block";
+
+                                        document.getElementById("repeatDays").required = false;
+                                        document.getElementById("dailyEndDate").required = false;
+                                        document.getElementById("repeatWeeks").required = false;
+                                        document.getElementById("weeklyEndDate").required = false;
+                                        document.getElementById("repeatMonths").required = true;
+                                        document.getElementById("monthlyEndDate").required = true;
+                                     }
+                                  }
+                              </script>
+                          </div>
+                          <div id="individualDiv" style="display: none; border: 2px solid; border-radius: 5px; padding:10px;">
+                                <div class="row placeani">
+                                   <table id="sessionsDiv" style="width:100%;">
+                                       <div id="session1">
+                                           <tr style="padding:5px;" class="list-item-head">
+                                               <th class="list-item-head-content">
+                                                   <div class="row" style="padding: 15px;">
+                                                       <div class="col-lg-3">
+                                                           <label class="col-form-label">
+                                                               Session Date
+                                                           </label>
+                                                           <div class="row">
+                                                               <div class="col-lg-12">
+                                                                   <input class="form-control session_date" type="date" name="session_date1" id="sessionDate1" style="background-color: #dddddd;">
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="col-lg-3">
+                                                           <label class="col-form-label">
+                                                               Start Time
+                                                           </label>
+                                                           <div class="row">
+                                                               <div class="col-lg-12">
+                                                                   <input class="form-control session_start_time" type="time" name="session_start_time1" id="sessionStartTime1" style="background-color: #dddddd;">
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="col-lg-4">
+                                                           <label class="col-form-label">
+                                                               Session Duration
+                                                           </label>
+                                                           <span> (Eg.: 4 hours or 4.5 hours)</span>
+                                                           <div class="row">
+                                                               <div class="col-lg-12">
+                                                                   <input class="form-control session_duration" type="text" name="session_duration1" id="sessionDuration1" style="background-color: #dddddd;">
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </th>
+                                           </tr>
+                                       </div>
+                                    </table>
+                                </div>
+                              <div class="row placeani">
+                                <div class="col-12">
+                                    <button type="button" class="btn-secondry add-item m-r5" onclick="AddSession()"><i class="fa fa-fw fa-plus-circle"></i>Add Session</button>
+                                </div>
+                              </div>
+                          </div>
+                          <br>
+                         <div class="">
+                            <div class="">
+                               <div class="row text-center">
+                                 <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+                                   <button type="submit" class="btn" style="color:black; font-weight:500;">Update</button>
+                                 </div>
+                               </div>
+                            </div>
+                         </div>
+                      </form>
+                  </div>
+               </div>
+                  <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Reply to review</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <div class="modal-body">
+                              <textarea class="form-control" placeholder="Type text"></textarea>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn mr-auto">Reply</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+            </div>
+         </div>
+          <!-- Your Profile Views Chart END-->
+      </div>
+   </main>
+   <div class="ttr-overlay"></div>
+
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/admin-bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src='static/assets/vendors/scroll/scrollbar.min.js'></script>
+<script src="static/assets/js/admin-functions.js"></script>
+<script src="static/assets/vendors/chart/chart.min.js"></script>
+<script src="static/assets/js/admin.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var batchMeetingType = "{{batch_details[11]}}";  // Get the prepopulated meeting value
+        var recurrenceValue = "{{batch_details[12]}}";  // Get the prepopulated recurrence value
+
+        if (batchMeetingType === "recurring") {
+            document.getElementById("recurring_meeting").checked = true;
+            // Automatically click on the radio button
+            document.getElementById("recurring_meeting").click();
+
+            var recurrenceSelect = document.getElementById("recurrence");
+            for (var i = 0; i < recurrenceSelect.options.length; i++) {
+                if (recurrenceSelect.options[i].value === recurrenceValue) {
+                    recurrenceSelect.options[i].selected = true;
+                    break;
+                }
+            }
+
+            if ("{{time}}" === "yes"){
+                document.getElementById("recurrence_start_time").value = "{{time_details[0]}}";
+                document.getElementById("recurrence_duration").value = "{{time_details[1]}}";
+            }
+
+            if ("{{batch_details[12]}}" === "Daily"){
+                recurrenceFunc()
+                document.getElementById("repeatDays").value = "{{batch_details[13]}}";
+                document.getElementById("dailyEndDate").value = "{{batch_details[14]}}";
+            } else if ("{{batch_details[12]}}" === "Weekly"){
+                recurrenceFunc()
+
+                var selectedDays = "{{selected_days_list}}";
+                // flask list comparison with html name values
+                var checkboxes = document.querySelectorAll('input[name="day"]');
+                for (var i = 0; i < checkboxes.length; i++) {
+                  var checkbox = checkboxes[i];
+                  // Check if the checkbox value matches any of the selected days
+                  if (selectedDays.includes(checkbox.value)) {
+                    checkbox.checked = true; // Set the checkbox as checked
+                  }
+                }
+
+                document.getElementById("repeatWeeks").value = "{{batch_details[13]}}";
+                document.getElementById("weeklyEndDate").value = "{{batch_details[14]}}";
+            } else if ("{{batch_details[12]}}" === "Monthly"){
+                recurrenceFunc()
+                document.getElementById("repeatMonths").value = "{{batch_details[13]}}";
+                document.getElementById("monthlyEndDate").value = "{{batch_details[14]}}";
+            }
+        } else if (batchMeetingType === "individual") {
+            document.getElementById("individual_meeting").checked = true;
+            // Automatically click on the radio button
+            document.getElementById("individual_meeting").click();
+            document.getElementById('sessionDate1').value = "{{all_session_details[0][0]}}";
+            document.getElementById('sessionStartTime1').value = "{{all_session_details[0][1]}}";
+            document.getElementById('sessionDuration1').value = "{{all_session_details[0][2]}}";
+
+            var sessionDetails = {{ all_session_details | tojson | safe }};
+
+            // Loop over sessionDetails in JavaScript
+            for (var i = 1; i < sessionDetails.length; i++) {
+                var sessionDetail = sessionDetails[i];
+                AddSession(sessionDetail[0], sessionDetail[1], sessionDetail[2]);
+            }
+        }
+    });
+</script>
+<script>
+    var sessionNumValue = 2;
+   function AddSession(sessionDate, sessionStartTime, sessionDuration){
+       iSession = sessionNumValue;
+
+        // Check if parameters are undefined
+        if (typeof sessionDate === 'undefined') {
+            sessionDate = '';
+        }
+        if (typeof sessionStartTime === 'undefined') {
+            sessionStartTime = '';
+        }
+        if (typeof sessionDuration === 'undefined') {
+            sessionDuration = '';
+        }
+
+       var session = '<div id="session' + iSession + '"><tr style="padding:5px;" class="list-item-head"><th class="list-item-head-content"><div class="row" style="padding: 15px;"><div class="col-lg-3"><label class="col-form-label">Session Date</label><div class="row"><div class="col-lg-12"><input class="form-control session_date" type="date" name="session_date" id="sessionDate' + iSession + '" style="background-color: #dddddd;" value="' + sessionDate + '" required></div></div></div><div class="col-lg-3"><label class="col-form-label">Start Time</label><div class="row"><div class="col-lg-12"><input class="form-control session_start_time" type="time" name="session_start_time" id="sessionStartTime' + iSession + '" style="background-color: #dddddd;" value="' + sessionStartTime + '" required></div></div></div><div class="col-lg-4"><label class="col-form-label">Session Duration</label><span> (Eg.: 4 hours or 4.5 hours)</span><div class="row"><div class="col-lg-12"><input class="form-control session_duration" type="text" name="session_duration" id="sessionDuration' + iSession + '" style="background-color: #dddddd;" value="' + sessionDuration + '" required></div></div></div><div class="col-lg-2 delete-div form-group-delete"><button class="delete" id="sessionDelete' + iSession + '" onclick="DeleteSession(' + iSession + ')"><i class="fa fa-close"></i></button></div></div></th></tr></div>'
+       $('#sessionsDiv').append(session);
+       sessionNumValue++;
+   }
+
+   function DeleteSession(iSession) {
+        return function() {
+            var sessionId = 'session' + iSession;
+            var sessionElement = $('#' + sessionId);
+            sessionElement.remove();
+
+            // Update batch numbers
+            $('.list-item-head-value').each(function(index) {
+                $(this).text('Session ' + (index + 1));
+            });
+
+            $('.list-item-head-input').each(function(index) {
+                $(this).val('Session ' + (index + 1));
+            });
+
+            sessionNumValue--;
+        }
+   }
+
+    $(document).on('click', '.delete', function() {
+        var button = $(this);
+        var sessionId = button.attr('id').replace('sessionDelete', '');
+        var sessionNumber = parseInt(sessionId);
+
+        DeleteSession(sessionNumber)();
+    });
+
+
+    function radioFunc(radio){
+        if (radio.value === "recurring"){
+            document.getElementById("recurringDiv").style.display = "block";
+            document.getElementById("individualDiv").style.display = "none";
+
+            document.getElementById("recurrence").required = true;
+            document.getElementById("sessionDate1").required = false;
+            document.getElementById("sessionStartTime1").required = false;
+            document.getElementById("sessionDuration1").required = false;
+            for (var i = 2; i < sessionNumValue; i++) {
+              var sessionDate = "sessionDate" + i;
+              var sessionStartTime = "sessionStartTime" + i;
+              var sessionDuration = "sessionDuration" + i;
+              document.getElementById(sessionDate).required = false;
+              document.getElementById(sessionStartTime).required = false;
+              document.getElementById(sessionDuration).required = false;
+            }
+        } else if (radio.value === "individual"){
+            document.getElementById("individualDiv").style.display = 'block';
+            document.getElementById("recurringDiv").style.display = 'none';
+
+            document.getElementById("recurrence").required = false;
+            document.getElementById("repeatDays").required = false;
+            document.getElementById("dailyEndDate").required = false;
+            document.getElementById("repeatWeeks").required = false;
+            document.getElementById("weeklyEndDate").required = false;
+            document.getElementById("repeatMonths").required = false;
+            document.getElementById("monthlyEndDate").required = false;
+            document.getElementById("sessionDate1").required = true;
+            document.getElementById("sessionStartTime1").required = true;
+            document.getElementById("sessionDuration1").required = true;
+            for (var i = 2; i < sessionNumValue; i++) {
+              var sessionDate = "sessionDate" + i;
+              var sessionStartTime = "sessionStartTime" + i;
+              var sessionDuration = "sessionDuration" + i;
+              document.getElementById(sessionDate).required = true;
+              document.getElementById(sessionStartTime).required = true;
+              document.getElementById(sessionDuration).required = true;
+            }
+        }
+    }
+</script>
+</body>
+
+</html>

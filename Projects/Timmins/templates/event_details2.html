@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <!-- META ============================================= -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="" />
+
+   <!-- DESCRIPTION -->
+   <meta name="description" content="" />
+
+   <!-- OG -->
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta name="format-detection" content="telephone=no">
+
+   <!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+   <!-- PAGE TITLE HERE ============================================= -->
+   <title>Timmins: Event-details</title>
+    {{seo_value[0] | safe}}
+
+   <!-- MOBILE SPECIFIC ============================================= -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <script src="static/assets/js/cloud_flare.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+   <!-- All PLUGINS CSS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+
+   <!-- TYPOGRAPHY ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+   <!-- SHORTCODES ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+   <!-- STYLESHEETS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/others.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/certification.css">
+   <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+</head>
+<body id="bg">
+<div id="loading-icon-bx"></div>
+<div class="page-wraper">
+   <script>
+   	function hideLoadingIcon() {
+        var loadingIcon = document.getElementById("loading-icon-bx");
+        if (loadingIcon) {
+          loadingIcon.style.display = "none";
+        }
+    }
+    setTimeout(hideLoadingIcon, 1000);
+
+   var sessionEmail = sessionStorage.getItem("signin_mail");
+   var sessionUserName = sessionStorage.getItem("user_name");
+   if ('{{user_email}}' == sessionEmail){
+      if (sessionUserName == null){
+        if ('{{user_name}}' =="admin"){
+         sessionStorage.setItem("user_name",'{{user_name}}');
+      } else {
+          sessionStorage.setItem("user_name",'{{user_name}}');
+          recommendedArray = []
+          {% for recommended_loop in recommended_courses %}
+            recommended = []
+            recommended.push('{{recommended_loop[0]}}')
+            recommended.push('{{recommended_loop[1]}}')
+            recommended.push('{{recommended_loop[2]}}')
+
+            recommendedArray.push(recommended)
+          {% endfor %}
+          sessionStorage.setItem("recommended_courses",JSON.stringify(recommendedArray));
+      }
+      }
+   }
+</script>
+<div class="page-wraper">
+
+   <!-- Header Top ==== -->
+      <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+         <script>
+               var email = sessionStorage.getItem("signin_mail")
+               var user_name = sessionStorage.getItem("user_name")
+               var arrayValue = [email, user_name]
+               document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+               document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+         </script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                  <li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+                  <li><a href="javascript:;" class="dropdown_for_menu"><form action="/individual_category_page" method="post"><button name="category_name" value="{{categories[1]}}" style="border:none;background-color:transparent; padding:0px;">{{categories[1]}}</button></form><i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+               <ul class="sub-menu">
+                  {% for certification_courses_loop in certification_courses %}
+                  <li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';">
+                     <form action="/certification" method="post">
+                        <input name="email" class="inputTag" type="hidden">
+                        <button class="certification-button" name="certification_value" value="{{certification_courses_loop[0]}}" style="border:none;background-color:transparent;font-size:15px; margin-left:6%;" id="loop_value">
+                           {{certification_courses_loop[1]}}
+                        </button>
+                     </form>
+                  </li>
+                     <script>
+                        window.addEventListener('DOMContentLoaded', function() {
+                          var email = sessionStorage.getItem('signin_mail');
+                          var elements = document.getElementsByClassName('inputTag');
+
+                          for (var i = 0; i < elements.length; i++) {
+                           elements[i].value = email;
+                          }
+                        });
+                     </script>
+                  {% endfor %}
+               </ul>
+                 </li>
+                 <li><a href="/event">Training Calendar</a></li>
+            <!--<li><a href="#" class="dropdown_for_menu">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                      <li><a href="/cyber_security">Cyber Security</a></li>
+                      <li><a href="/web_development">Web Development</a></li>
+                  <li><a href="/app_development">Mobile App Development</a></li>
+                    </ul>
+                  </li>-->
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+            <!--<li class="#"><a href="/admin_panel">Admin Panel</a></li>-->
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+              <script>
+                     var email = sessionStorage.getItem("signin_mail")
+                     var user_name = sessionStorage.getItem("user_name")
+                     var arrayValue = [email, user_name]
+                     document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+                     document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+               </script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+   <script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+       }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+   </script>
+
+   <!-- Header Top END ==== -->
+
+   <!-- Hero Start -->
+        <div class="hero" id="home" style="background:url(static/assets/timmins_images/event-bg1.jpg);">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h1 style="line-height:1em;font-family: 'Source Sans Pro';">{{details[0]}}</h1><br>
+                                <h2 style="font-family: 'Source Sans Pro';letter-spacing: 2px;">{{details[1]}}</h2>
+
+                            </div>
+                            <div class="hero-btn">
+                                <form action="/buy_ticket" method="post">
+                                    <button class="btn" id="buy_ticket">Register Now</button>
+                                    <input type="hidden" name="batch_id" value="{{batch_id}}">
+                                    <input type="hidden" name="event_name" value="{{details[0]}}">
+                                    <input type="hidden" name="batch_name" value="{{details[1]}}">
+                                    <input type="hidden" name="batch_time" value="{{details[2]}}">
+                                    <input type="hidden" name="batch_date" value="{{details[3]}}">
+                                </form>
+                            </div>
+                            <script>
+                                var email = sessionStorage.getItem("signin_mail")
+                                var user_name = sessionStorage.getItem("user_name")
+                                var arrayValue = [email, user_name]
+                                document.getElementById("buy_ticket").setAttribute("name","arrayValue")
+                                document.getElementById("buy_ticket").setAttribute("value",arrayValue)
+
+                                if ('{{details[12]}}' == 'Expired'){
+                                    var buyTicketButton = document.getElementById('buy_ticket');
+                                    buyTicketButton.disabled = true;
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="static/assets/timmins_images/event-bg-girl2-min.png" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   <!-- Hero End -->
+
+<!--date,place,time starts--->
+<div class="container-three-separate-column" style="background-color:#034694;margin-top:-44px;">
+   <div class="row">
+    <div class="column">
+      <p><i class="icon-class ti-alarm-clock"></i>&nbsp;Time</p>
+      <h3>{{details[2]}} {{details[11]}}</h3>
+    </div>
+       <div class="center-column">
+      <p><i class="icon-class ti-calendar"></i>&nbsp;Date</p>
+      <h3>{{details[3]}}</h3>
+    </div>
+    <div class="center-column">
+      <p><i class="icon-class ti-pin2"></i>&nbsp;Location</p>
+      <h3>{{details[4]}}</h3>
+    </div>
+    <div class="column">
+      <p><i class="icon-class ti-time"></i>&nbsp;Total Duration</p>
+      <h3>{{details[5]}}</h3>
+    </div>
+  </div>
+</div><br><br>
+<!--date,place,time end--->
+<!---event table starts--->
+ <div class="container-event-table">
+        <main class="event-table">
+            <section class="event-table__header centered-content-event-table">
+                <h2 id="sessions-heading" style="cursor:pointer;">View Session Details &nbsp;<i class="fa fa-angle-down"></i></h2>
+            </section>
+            <section class="event-table__body">
+                <table class="sessions-table">
+                    <thead>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Session Date</th>
+                            <th>Session Time</th>
+                            <th>Session Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for details_loop in batch_session_details %}
+                        <tr>
+                            <td><strong>{{loop.index}}</strong></td>
+                            <td><strong>{{details_loop[0]}}</strong></td>
+                            <td><strong>{{details_loop[1]}} ({{details[11]}})</strong></td>
+                            <td><strong>{{details_loop[2]}}</strong></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript to toggle the table visibility when the "Sessions" heading is clicked
+        document.addEventListener("DOMContentLoaded", function () {
+            const sessionsHeading = document.getElementById("sessions-heading");
+            const sessionsTable = document.querySelector(".sessions-table");
+
+            // Initially, show the table
+            sessionsTable.style.display = "none";
+            sessionsHeading.addEventListener("click", function () {
+                sessionsTable.style.display = sessionsTable.style.display === "none" ? "table" : "none";
+            });
+        });
+    </script>
+<!--event table ends--->
+<div class="section-area section-sp1">
+                <div class="container">
+                <div class="row d-flex flex-row-reverse">
+                  <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
+                     <div class="course-detail-bx">
+                        <div class="course-price">
+                           <h3>Connect with us</h3>
+                        </div>
+                       <div class="course-buy-now text-center">
+    <form action="/buy_ticket" method="post">
+            <button class="btn-company radius-xl text-uppercase" id="buy_ticket1" style="letter-spacing:2px;border:none;">Register now</button>
+            <input type="hidden" name="batch_id" value="{{batch_id}}">
+            <input type="hidden" name="event_name" value="{{details[0]}}">
+            <input type="hidden" name="batch_name" value="{{details[1]}}">
+            <input type="hidden" name="batch_time" value="{{details[2]}}">
+            <input type="hidden" name="batch_date" value="{{details[3]}}">
+    </form>
+</div>
+ <script>
+        var email = sessionStorage.getItem("signin_mail")
+        var user_name = sessionStorage.getItem("user_name")
+        var arrayValue = [email, user_name]
+        document.getElementById("buy_ticket1").setAttribute("name","arrayValue")
+        document.getElementById("buy_ticket1").setAttribute("value",arrayValue)
+
+        if ('{{details[12]}}' == 'Expired'){
+            var buyTicketButton = document.getElementById('buy_ticket1');
+            buyTicketButton.disabled = true;
+        }
+    </script>
+                         <div class="teacher-bx">
+    <h4 style="letter-spacing:1px;">Our latest programs</h4>
+    {% set last_two_courses = certification_courses[-4:] %}
+    {% for certification_courses_loop in last_two_courses %}
+        <form action="/certification" method="post">
+            <button name="certification_value" value="{{ certification_courses_loop[0] }}" id="loop_value" style="border:none;background-color:transparent;">
+                <div class="teacher-info">
+                    <div class="teacher-thumb">
+                        <img src="static/{{ certification_courses_loop[10] }}" alt=""/>
+                    </div>
+                    <div class="teacher-name">
+                        <a href="#"><h5 style="text-align:left;">{{ certification_courses_loop[1] }}</h5></a>
+                        <span></span>
+                    </div>
+                </div>
+            </button>
+        </form>
+    {% endfor %}
+</div>
+
+                     </div>
+                  </div>
+
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                     <div class="courese-overview" id="overview">
+                        <h4>Overview</h4>
+                        <div class="row">
+                           <div class="col-md-12 col-lg-4" style="border:1px solid #d0d0d0;">
+                              <ul class="course-features">
+                               <li><i class="ti-book"></i> <span class="label">Total Sessions</span> <span class="value">{{details[6]}}</span></li>
+                               <!--<li><i class="ti-time"></i> <span class="label">Session Duration</span> <span class="value">{{details[7]}}</span></li>-->
+                               <!--<li><i class="ti-stats-up"></i> <span class="label">Skill level</span> <span class="value">{{skill_level}}</span></li>-->
+                               <li><i class="ti-smallcap"></i> <span class="label">Language</span> <span class="value">{{details[8]}}</span></li>
+                                  <li><i class="ti-help-alt"></i> <span class="label">Quizzes</span> <span class="value">{{details[9]}}</span></li>
+                               <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span class="value">{{details[10]}}</span></li>
+                            </ul>
+                           </div>
+                           <div class="col-md-12 col-lg-8">
+                              <h5 class="m-b5">Key takeaways</h5>
+                                        <ul class="list-checked primary">
+                              {% for key_takeaways_loop in key_takeaways %}
+                                        <li>{{key_takeaways_loop}}</li>
+                                        {% endfor %}
+                                        </ul>
+
+                              <h5 class="m-b5">Prerequisites</h5>
+                                     <ul class="list-checked primary">
+                                            {% for prerequisites_loop in prerequisite %}
+                                            <li>{{prerequisites_loop}}</li>
+                                            {% endfor %}
+                                        </ul>
+
+                              <h5 class="m-b5">Who is it for?</h5>
+                              <ul class="list-checked primary">
+                                            {% for who_is_it_for_loop in who_is_it_for %}
+                                 <li>{{who_is_it_for_loop}}</li>
+                                            {% endfor %}
+                              </ul>
+
+                           </div>
+                        </div>
+                     </div>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+            </div>
+   <!--academic starts--->
+
+    <br><br>
+    <!-- certification starts -->
+         <div class="section-area section-sp2" id="memories">
+                <div class="container">
+               <div class="row">
+                  <div class="col-md-12 heading-bx left">
+                     <h2 class="title-head" id="title">Captured <span>Moments</span></h2>
+                  </div>
+               </div>
+               <div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+                        {% for memories_list_loop in memories_list %}
+                  <div class="item">
+                     <div class="recent-news">
+                        <div class="action-box">
+                           <img src="{{memories_list_loop}}" alt="">
+                        </div>
+                     </div>
+                  </div>
+                        {% endfor %}
+               </div>
+            </div>
+         </div>
+         <!-- certification End -->
+    <!-- Testimonials -->
+         <!-- Testimonials -->
+    {% if testimonial_student_name_list != "" %}
+<div class="section-area section-sp2 bg-fix ovbl-dark" style="background-image:url(static/assets/timmins_images/home_slides/slide_1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-white heading-bx left">
+                <h2 class="title-head text-uppercase">Feedback <span>about this event</span></h2>
+            </div>
+        </div>
+        <div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+    {% for index in range(testimonial_student_name_list|length) %}
+        <div class="item">
+            <div class="testimonial-bx">
+                <div class="testimonial-info">
+                    <h5 class="name">{{ testimonial_student_name_list[index] }}&nbsp;&nbsp;&nbsp;<p style="font-size:11px;display:inline-block;float:right;">{{testimonial_date}}</p></h5>
+                    <p>-{{ testimonial_company_name_list[index] }}</p>
+
+                </div>
+                <div class="testimonial-content">
+                    <p>{{ testimonial_feedback_list[index] }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+            </div>
+        </div>
+    {% endif %}
+<!-- Testimonials END -->
+    <!-- Upcoming events -->
+    <div class="section-area section-sp2" id="upcoming">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-12 text-center heading-bx">
+                <!--<h1 class="title-head m-b0" style="font-weight:1000;color:#1D1A4E;">Upcoming Events</h1>-->
+                <h1 class="title-head m-b0" style="font-weight:1000;color:#1D1A4E;">Other Events</h1>
+             </div>
+          </div>
+          <div class="row">
+          <div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b30">
+             {% for upcoming_events_loop in other_events %}
+              <form action="/event_details" method="post">
+                  <input type="hidden" name="day_status" value="{{upcoming_events_loop[8]}}">
+                  <button name="batch_id" value="{{upcoming_events_loop[0]}}" style="background-color:transparent;border:none;">
+                     <div class="item">
+                        <div class="event-bx">
+                           <div class="action-box" style="max-height:250px;">
+                              <img src="static/{{upcoming_events_loop[6]}}" alt="" style="max-height:250px;">
+                           </div>
+                           <div class="info-bx d-flex">
+                              <div>
+                                 <div class="event-time">
+                                    <div class="event-date">
+                                        {{upcoming_events_loop[1]}}{{upcoming_events_loop[2]}}
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="event-info">
+                                    <h4 class="event-title">{{upcoming_events_loop[3]}}</h4>
+                                 <ul class="media-post">
+                                    <li><a href="#"><i class="fa fa-tasks"></i>{{upcoming_events_loop[4]}}</a></li>&nbsp;
+                                    <li><a href="#"><i class="fa fa-clock-o"></i>{{upcoming_events_loop[5]}}</a></li>
+                                    <!--<li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a></li>-->
+                                 </ul>
+                                 <p class="comment more">{{upcoming_events_loop[7]}}</p>
+                              </div>
+                               <script>
+                               $(document).ready(function() {
+                                   var showChar = 100;
+                                   var ellipsestext = "...";
+                                   var moretext = "read more";
+                                   var lesstext = "read less";
+                                   $('.more').each(function() {
+                                       var content = $(this).html();
+                                       if(content.length > showChar) {
+                                           var c = content.substr(0, showChar);
+                                           var h = content.substr(showChar-1, content.length - showChar);
+                                           var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+                                           $(this).html(html);
+                                       }
+                                   });
+
+                                   $(".morelink").click(function(){
+                                       if($(this).hasClass("less")) {
+                                           $(this).removeClass("less");
+                                           $(this).html(moretext);
+                                       } else {
+                                           $(this).addClass("less");
+                                           $(this).html(lesstext);
+                                       }
+                                       $(this).parent().prev().toggle();
+                                       $(this).prev().toggle();
+                                       return false;
+                                   });
+                               });
+                            </script>
+
+                           </div>
+                        </div>
+                     </div>
+                  </button>
+              </form>
+              {% endfor %}
+          </div>
+          </div>
+       </div>
+    </div>
+
+    <!-- upcoming events ends -->
+ <!-- Footer ==== -->
+    <footer>
+        <div class="footer-top">
+         <br>
+            <div class="container">
+                <div class="row">
+               <div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
+                            <h5 class="footer-title">About</h5>
+                     <p class="text-capitalize m-b20">Timmins is a knowledge-sharing enterprise that creates world-class training, consulting & staffing experiences in niche technology.</p>
+                            <div class="subscribe-form m-b20">
+                        <form class="subscription-form" action="#" method="post">
+                           <div class="ajax-message"></div>
+                           <div class="input-group">
+
+                              <span class="input-group-btn">
+                                 <a href="/download" class="btn-company">Download Company Profile</a>
+                              </span>
+                           </div>
+                        </form>
+                     </div>
+                        </div>
+                    </div>
+               <div class="col-12 col-lg-5 col-md-7 col-sm-12">
+                  <div class="row">
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Quick links</h5>
+                           <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="/all_courses">Courses</a></li>
+                              <li><a href="/event">Events</a></li>
+                              <li><a href="/why_timmins">Why Timmins</a></li>
+
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Featured articles</h5>
+                           <ul>
+                              <li><a href="/blogs_timmins">Blogs</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Our offices</h5>
+                           <ul>
+                              <li><a href="#" class="inactiveLink">Canada</a></li>
+                              <li><a href="#" class="inactiveLink">Malaysia</a></li>
+                              <li><a href="#" class="inactiveLink">Indonesia</a></li>
+
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="#" style="font-size:10px;">&#169; 2021 Timmins Training Consulting Inc. All rights reserved</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END ==== -->
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/jquery.scroller.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+<script src="static/assets/js/reveal.js"></script>
+<script>
+    if ("{{memories}}" == "yes"){
+        document.getElementById('memories').style.display="block";
+        document.getElementById('upcoming').style.display="none";
+    } else {
+        document.getElementById('memories').style.display="none";
+        document.getElementById('upcoming').style.display="block";
+    }
+</script>
+</body>
+
+</html>

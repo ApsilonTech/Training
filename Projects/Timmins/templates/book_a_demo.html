@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+
+	<!-- DESCRIPTION -->
+	<meta name="description" content="" />
+
+	<!-- OG -->
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Timmins: Book-a-demo</title>
+
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if lt IE 9]>
+	<script src="static/assets/js/html5shiv.min.js"></script>
+	<script src="static/assets/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/others.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+
+</head>
+<body id="bg">
+<div class="page-wraper">
+	<div id="loading-icon-bx"></div>
+    <script>
+        function hideLoadingIcon() {
+            var loadingIcon = document.getElementById("loading-icon-bx");
+            if (loadingIcon) {
+              loadingIcon.style.display = "none";
+            }
+        }
+        setTimeout(hideLoadingIcon, 1000);
+    </script>
+	<div class="account-form">
+		<div class="account-head" style="background-image:url(static/assets/timmins_images/login_image.jpg);">
+		<a href="/"><img src="static/assets/timmins_images/logo1.png" alt="" style="height:120px;width:150px;"></a>
+
+		</div>
+		<div class="account-form-inner">
+   <div class="account-container">
+      <div class="heading-bx left">
+         <h2 class="title-head">Book a <span>Demo</span></h2>
+
+      </div>
+      <form class="contact-bx" action="/book_a_demo_update" method="post" onsubmit="return bookDemoValidateForm()">
+         <div class="row placeani">
+                      <div class="col-lg-12">
+               <div class="form-group">
+                  <label>First Name</label>
+                  <div class="input-group">
+                     <input id="first_name" name="first_name" value="{{firstname}}" type="text" class="form-control valid-character" required>
+                      <div id="first_name_warning" style="display:none;color:red;">Please enter your first name</div>
+                  </div>
+               </div>
+            </div>
+                      <div class="col-lg-12">
+               <div class="form-group">
+                  <label>Last Name</label>
+                  <div class="input-group">
+                     <input id="last_name" name="last_name" value="{{lastname}}" type="text" class="form-control valid-character" required>
+                      <div id="last_name_warning" style="display:none;color:red;">Please enter your last name</div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-12">
+               <div class="form-group">
+                  <label>Your Email</label>
+                  <div class="input-group">
+                     <input id="email" name="email" value="{{email_id}}" type="text" class="form-control" required>
+                      <p id="emailError" style="display: none; color: red;">Invalid email</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-12">
+                  <label>How can we help</label>
+                  <select id="select_option" name="selected_option1" onchange="checkCountrySelection()">
+                      <option value="" selected disabled>Select Option</option>
+                      <option value="Schedule a call- Training Solution">Schedule a call- Training Solution</option>
+                      <option value="Schedule a call- Staffing Solutions">Schedule a call- Staffing Solutions</option>
+                      <option value="Schedule a call- Software Consulting & Development Solutions">Schedule a call- Software Consulting & Development Solutions</option>
+                      <option value="Book a Free Demo- Training Trial Session">Book a Free Demo- Training Trial Session</option>
+                      <option value="Book a Free Demo- Training Customization Process Presentation">Book a Free Demo- Training Customization Process Presentation</option>
+                      <option value="Free Consultation- Corporate Training Needs Assessment">Free Consultation- Corporate Training Needs Assessment</option>
+                      <option value="Free Consultation- IT Staffing Needs Assessment">Free Consultation- IT Staffing Needs Assessment</option>
+                      <option value="Free Consultation- Niche Software Needs Assessment">Free Consultation- Niche Software Needs Assessment</option>
+                      <option value="Request For more information">Request For more information</option>
+                      <option value="Connect with us-Other">Connect with us-Other</option>
+                  </select>
+                  <script>
+                        function checkCountrySelection() {
+                          var dropDownSelect = document.getElementById('select_option');
+                          var submitButton = document.getElementById('submit');
+
+                          if (dropDownSelect.value === "") {
+                            submitButton.disabled = true;
+                          } else {
+                            submitButton.disabled = false;
+                          }
+                        }
+                  </script>
+            </div>
+
+            <div class="col-lg-12">
+               <div class="form-group"><br>
+                  <label>We would love to hear from you!</label>
+                  <textarea name="message" rows="4" class="form-control" required placeholder="Your Message" id="message"></textarea>
+                   <div id="message_warning" style="display:none;color:red;">Please enter your message</div>
+               </div>
+            </div>
+
+            <div class="col-lg-12 m-b30">
+               <button name="submit" type="submit" value="Submit" id="submit" class="btn button-md" disabled>Submit</button><!-- onclick="submitFun()"-->
+            </div>
+
+         </div>
+      </form>
+   </div>
+</div>
+
+	</div>
+</div>
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+<script>
+    function checkFirstName() {
+     var first_name = document.getElementById("first_name").value;
+     var first_name_warning = document.getElementById("first_name_warning");
+     if (first_name == "") {
+      first_name_warning.style.display = "block";
+      return false;
+     } else {
+      first_name_warning.style.display = "none";
+      return true;
+     }
+   }
+    document.getElementById("first_name").addEventListener("blur", checkFirstName);
+
+    function checkLastName() {
+     var last_name = document.getElementById("last_name").value;
+     var last_name_warning = document.getElementById("last_name_warning");
+     if (last_name == "") {
+      last_name_warning.style.display = "block";
+      return false;
+     } else {
+      last_name_warning.style.display = "none";
+      return true;
+     }
+   }
+    document.getElementById("last_name").addEventListener("blur", checkLastName);
+
+    function checkSelectOptionName() {
+     var select_option = document.getElementById("select_option").value;
+     var select_option_warning = document.getElementById("select_option_warning");
+     if (select_option == "") {
+      select_option_warning.style.display = "block";
+      return false;
+     } else {
+      select_option_warning.style.display = "none";
+      return true;
+     }
+   }
+    document.getElementById("select_option").addEventListener("blur", checkSelectOptionName);
+
+    function checkEmailName() {
+     var email = document.getElementById("email").value;
+     var email_warning = document.getElementById("email_warning");
+     if (email == "") {
+      email_warning.style.display = "block";
+      return false;
+     } else {
+      email_warning.style.display = "none";
+      return true;
+     }
+   }
+    document.getElementById("email").addEventListener("blur", checkEmailName);
+
+    function checkMessageName() {
+     var message = document.getElementById("message").value;
+     var message_warning = document.getElementById("message_warning");
+     if (message == "") {
+      message_warning.style.display = "block";
+      return false;
+     } else {
+      message_warning.style.display = "none";
+      return true;
+     }
+   }
+    document.getElementById("message").addEventListener("blur", checkMessageName);
+
+    function bookDemoValidateForm(){
+    var email = document.getElementById("email").value;
+    if (email.includes("@") && email.includes(".")){
+        alert('Thank you for contacting us! We have received your message and our team will get back to you soon.')
+        return true;
+    } else {
+        document.getElementById("emailError").style.display="block";
+        return false;
+    }
+    }
+</script>
+</body>
+
+</html>

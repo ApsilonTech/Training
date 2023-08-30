@@ -1,0 +1,194 @@
+  <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+			<script>
+					var email = sessionStorage.getItem("signin_mail")
+					var user_name = sessionStorage.getItem("user_name")
+					var arrayValue = [email, user_name]
+					document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+					document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+			</script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+						<li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+                       <li><a href="javascript:;" class="dropdown_for_menu">{{categories[1]}}<i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+						<li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';"><form action="/certification1" method="post"><button class="certification-button" name="certification_value1" id="certification_value1" style="border:none;background-color:transparent;font-size:15px;">Full Stack Python Developer</button></form></li>
+						<li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';"><form action="/certification2" method="post"><button class="certification-button" name="certification_value2" id="certification_value2" style="border:none;background-color:transparent;font-size:15px;">Full Stack Java Developer</button></form></li>
+                    </ul>
+					  <script>
+						  var email = sessionStorage.getItem("signin_mail")
+						  var user_name = sessionStorage.getItem("user_name")
+						  var arrayValue = [email, user_name]
+						  document.getElementById("certification_value1").setAttribute("value",arrayValue)
+						  document.getElementById("certification_value2").setAttribute("value",arrayValue)
+					  </script>
+                  </li>
+                 <li><a href="/event">Training Calendar</a></li>
+				<!--<li><a href="#" class="dropdown_for_menu">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                      <li><a href="/cyber_security">Cyber Security</a></li>
+                      <li><a href="/web_development">Web Development</a></li>
+						<li><a href="/app_development">Mobile App Development</a></li>
+                    </ul>
+                  </li>-->
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+				<!--<li class="#"><a href="/admin_panel">Admin Panel</a></li>-->
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+				  <script>
+							var email = sessionStorage.getItem("signin_mail")
+							var user_name = sessionStorage.getItem("user_name")
+						  	var arrayValue = [email, user_name]
+							document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+							document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+					</script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+	<script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+     }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+ 	</script>

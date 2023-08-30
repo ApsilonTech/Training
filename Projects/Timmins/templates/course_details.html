@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <!-- META ============================================= -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="" />
+
+   <!-- DESCRIPTION -->
+   <meta name="description" content="" />
+
+   <!-- OG -->
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta name="format-detection" content="telephone=no">
+
+    <!------ FAVICON --------------------------->
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+   <!-- PAGE TITLE HERE ============================================= -->
+   <title>Timmins: Course-details</title>
+    {{seo_value[0] | safe}}
+
+   <!-- MOBILE SPECIFIC ============================================= -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--[if lt IE 9]>
+   <script src="static/assets/js/html5shiv.min.js"></script>
+   <script src="static/assets/js/respond.min.js"></script>
+   <![endif]-->
+
+   <!-- All PLUGINS CSS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+
+   <!-- TYPOGRAPHY ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+   <!-- SHORTCODES ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+   <!-- STYLESHEETS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/others.css">
+   <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+
+</head>
+<body id="bg">
+    <div id="loading-icon-bx"></div>
+    <script>
+	function hideLoadingIcon() {
+    var loadingIcon = document.getElementById("loading-icon-bx");
+    if (loadingIcon) {
+      loadingIcon.style.display = "none";
+    }
+    }
+    setTimeout(hideLoadingIcon, 1000);
+
+   var sessionEmail = sessionStorage.getItem("signin_mail");
+   var sessionUserName = sessionStorage.getItem("user_name");
+   if ('{{user_email}}' == sessionEmail){
+      if (sessionUserName == null){
+        if ('{{user_name}}' =="admin"){
+         sessionStorage.setItem("user_name",'{{user_name}}');
+      } else {
+          sessionStorage.setItem("user_name",'{{user_name}}');
+          recommendedArray = []
+          {% for recommended_loop in recommended_courses %}
+            recommended = []
+            recommended.push('{{recommended_loop[0]}}')
+            recommended.push('{{recommended_loop[1]}}')
+            recommended.push('{{recommended_loop[2]}}')
+
+            recommendedArray.push(recommended)
+          {% endfor %}
+          sessionStorage.setItem("recommended_courses",JSON.stringify(recommendedArray));
+      }
+      }
+   }
+</script>
+<div class="page-wraper">
+
+	<!-- Header Top ==== -->
+      <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+			<script>
+					var email = sessionStorage.getItem("signin_mail")
+					var user_name = sessionStorage.getItem("user_name")
+					var arrayValue = [email, user_name]
+					document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+					document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+			</script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+						<li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+						<li><a href="javascript:;" class="dropdown_for_menu"><form action="/individual_category_page" method="post"><button name="category_name" value="{{categories[1]}}" style="border:none;background-color:transparent; padding:0px;">{{categories[1]}}</button></form><i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+					<ul class="sub-menu">
+						{% for certification_courses_loop in certification_courses %}
+						<li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';">
+							<form action="/certification" method="post">
+								<input name="email" class="inputTag" type="hidden">
+								<button class="certification-button" name="certification_value" value="{{certification_courses_loop[0]}}" style="border:none;background-color:transparent;font-size:15px; margin-left:6%;" id="loop_value">
+									{{certification_courses_loop[1]}}
+								</button>
+							</form>
+						</li>
+							<script>
+								window.addEventListener('DOMContentLoaded', function() {
+								  var email = sessionStorage.getItem('signin_mail');
+								  var elements = document.getElementsByClassName('inputTag');
+
+								  for (var i = 0; i < elements.length; i++) {
+									elements[i].value = email;
+								  }
+								});
+							</script>
+						{% endfor %}
+					</ul>
+            	  </li>
+                 <li><a href="/event">Training Calendar</a></li>
+				<!--<li><a href="#" class="dropdown_for_menu">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                      <li><a href="/cyber_security">Cyber Security</a></li>
+                      <li><a href="/web_development">Web Development</a></li>
+						<li><a href="/app_development">Mobile App Development</a></li>
+                    </ul>
+                  </li>-->
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+				<!--<li class="#"><a href="/admin_panel">Admin Panel</a></li>-->
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+				  <script>
+							var email = sessionStorage.getItem("signin_mail")
+							var user_name = sessionStorage.getItem("user_name")
+						  	var arrayValue = [email, user_name]
+							document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+							document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+					</script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+	<script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+       }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+ 	</script>
+
+   <!-- Header Top END ==== -->
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner ovbl-dark" style="background-image:url(static/assets/timmins_images/handshake_partner1.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">Course Details</h1>
+             </div>
+            </div>
+        </div>
+      <!-- inner page banner END -->
+      <div class="content-block">
+            <!-- About Us -->
+         <div class="section-area section-sp1">
+                <div class="container">
+                <div class="row d-flex flex-row-reverse">
+                  <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
+                     <div class="course-detail-bx">
+                           <div class="price categories" style="text-align: center;"><br>
+                               <h4 style="color:#1a1e4d;">Course Features</h4>
+                               <ul class="course-features">
+                                 <li><i class="ti-help-alt"></i> <span class="label">Quizzes</span> <span class="value" style="font-weight:600;">{{Right_side_contents[0]}}</span></li>
+                                 <li><i class="ti-time"></i> <span class="label">Duration</span> <span class="value" style="font-weight:600;">{{Right_side_contents[1]}}</span></li>
+                                 <li><i class="ti-smallcap"></i> <span class="label">Language</span> <span class="value" style="font-weight:600;">{{Right_side_contents[2]}}</span></li>
+                                 <li><i class="ti-user"></i> <span class="label">Hands-On</span> <span class="value" style="font-weight:600;">{{Right_side_contents[4]}}</span></li>
+                                 <li><i class="ti-check-box"></i> <span class="label">Assessments</span> <span class="value" style="font-weight:600;">{{Right_side_contents[3]}}</span></li>
+                              </ul>
+                           </div>
+                     </div>
+                  </div>
+
+                  <div class="col-lg-9 col-md-8 col-sm-12">
+                     <div class="courses-post">
+                         <div class="ttr-post-info">
+                           <div class="ttr-post-title ">
+                              <h2 class="post-title" style="font-weight:800;color:#1a1d4e;">{{course_name}}</h2>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="courese-overview" id="overview">
+                        <div class="row">
+                           <div class="col-md-12 col-lg-4">
+                               <div class="course-buy-now text-center">
+                                    <form action="/request_for_training" method="post">
+                                        <button class="btn radius-xl text-uppercase" id="request_for_training">REQUEST FOR TRAINING</button><!--Buy This Course-->
+                                        <input type="hidden" name="courses_for_training" id="courses_for_training" readonly>
+                                    </form>
+                                </div>
+                               <script>
+                                   var email = sessionStorage.getItem("signin_mail")
+                                   var user_name = sessionStorage.getItem("user_name")
+						           var arrayValue = [email, user_name]
+                                   document.getElementById("request_for_training").setAttribute("name","arrayValue")
+                                   document.getElementById("request_for_training").setAttribute("value",arrayValue)
+                                   document.getElementById("courses_for_training").setAttribute("value","{{course_name}}")
+                               </script>
+                               <br>
+                               <div>
+                                   <img src="{{url_for('static',filename=course_image)}}" alt="">
+                               </div>
+                           </div>
+                           <div class="col-md-12 col-lg-8">
+                               <br><h5 class="m-b5" id="key_takeaways">Key Takeaways</h5>
+                              <ul class="list-checked primary">
+                                 {% for key_takeaways_loop in key_takeaways %}
+                                  <li>{{key_takeaways_loop}}</li>
+                                  {% endfor %}
+                              </ul><br>
+                               <h5 id="who_is_it_for">Who Is It For?</h5>
+                               <ul  class="list-checked primary">
+                                    {% for who_is_it_for_loop in who_is_it_for %}
+                                   <li>{{who_is_it_for_loop}}</li>
+                                   {% endfor %}
+                               </ul><br>
+                              <h5 class="m-b5" id="prerequisites">Prerequisites</h5>
+                              <ul class="list-checked primary">
+                                  {% for prerequisites_loop in prerequisites %}
+                               <li>{{prerequisites_loop}}</li>
+                               {% endfor %}
+                              </ul>
+                              <br>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            </div>
+        </div>
+      <!-- contact area END -->
+
+    </div>
+    <!-- Content END-->
+   <!-- Footer ==== -->
+    <footer>
+        <div class="footer-top">
+			<br>
+            <div class="container">
+                <div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
+                            <h5 class="footer-title">About</h5>
+							<p class="text-capitalize m-b20">Timmins is a knowledge-sharing enterprise that creates world-class training, consulting & staffing experiences in niche technology.</p>
+                            <div class="subscribe-form m-b20">
+								<form class="subscription-form" action="#" method="post">
+									<div class="ajax-message"></div>
+									<div class="input-group">
+										<span class="input-group-btn">
+											<a href="/download" class="btn">Download Company Profile</a>
+										</span>
+									</div>
+								</form>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-12 col-lg-5 col-md-7 col-sm-12">
+						<div class="row">
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Quick links</h5>
+									<ul>
+										<li><a href="/">Home</a></li>
+										<li><a href="/all_courses">Courses</a></li>
+										<li><a href="/event">Events</a></li>
+										<li><a href="/why_timmins">Why Timmins</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Featured articles</h5>
+									<ul>
+										<li><a href="/blogs_timmins">Blogs</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Our offices</h5>
+									<ul>
+										<li><a href="#" class="inactiveLink">Canada</a></li>
+										<li><a href="#" class="inactiveLink">Malaysia</a></li>
+										<li><a href="#" class="inactiveLink">Indonesia</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="#" style="font-size:10px;">&#169; 2021 Timmins Training Consulting Inc. All rights reserved</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END ==== -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/jquery.scroller.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+
+</body>
+
+</html>

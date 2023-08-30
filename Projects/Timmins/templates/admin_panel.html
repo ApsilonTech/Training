@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from educhamp.themetrades.com/demo/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Feb 2019 13:08:15 GMT -->
+<head>
+
+   <!-- META ============================================= -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="" />
+
+   <!-- DESCRIPTION -->
+   <meta name="description" content="" />
+
+   <!-- OG -->
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta name="format-detection" content="telephone=no">
+
+   <!-- FAVICONS ICON ============================================= -->
+   <link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+   <!-- PAGE TITLE HERE ============================================= -->
+   <title>Timmins: admin-home</title>
+
+   <!-- MOBILE SPECIFIC ============================================= -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--[if lt IE 9]>
+   <script src="static/assets/js/html5shiv.min.js"></script>
+   <script src="static/assets/js/respond.min.js"></script>
+   <![endif]-->
+
+   <!-- All PLUGINS CSS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/vendors/calendar/fullcalendar.css">
+
+   <!-- TYPOGRAPHY ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+   <!-- SHORTCODES ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+   <!-- STYLESHEETS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/style.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/dashboard.css">
+   <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+
+</head>
+<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+<div id="loading-icon-bx"></div>
+   <!-- header start -->
+   <header class="ttr-header">
+      <div class="ttr-header-wrapper">
+         <!--sidebar menu toggler start -->
+         <div class="ttr-toggle-sidebar ttr-material-button">
+            <i class="ti-close ttr-open-icon"></i>
+            <i class="ti-menu ttr-close-icon"></i>
+         </div>
+         <!--sidebar menu toggler end -->
+         <!--logo start -->
+
+         <!--logo end -->
+         <div class="ttr-header-menu">
+            <!-- header left menu start -->
+            <ul class="ttr-header-navigation">
+               <li>
+                  <a href="/" class="ttr-material-button ttr-submenu-toggle">HOME</a>
+               </li>
+
+            </ul>
+            <!-- header left menu end -->
+         </div>
+         <div class="ttr-header-right ttr-with-seperator">
+            <!-- header right menu start -->
+
+            <!-- header right menu end -->
+         </div>
+         <!--header search panel start -->
+         <div class="ttr-search-bar">
+            <form class="ttr-search-form">
+               <div class="ttr-search-input-wrapper">
+                  <input type="text" name="qq" placeholder="search something..." class="ttr-search-input">
+                  <button type="submit" name="search" class="ttr-search-submit"><i class="ti-arrow-right"></i></button>
+               </div>
+               <span class="ttr-search-close ttr-search-toggle">
+                  <i class="ti-close"></i>
+               </span>
+            </form>
+         </div>
+         <!--header search panel end -->
+      </div>
+   </header>
+   <!-- header end -->
+   <!-- Left sidebar menu start -->
+   <div class="ttr-sidebar">
+      <div class="ttr-sidebar-wrapper content-scroll">
+         <!-- side menu logo start -->
+         <div class="ttr-sidebar-logo">
+            <a href="/"><img alt="" src="static/assets/timmins_images/logo.png" width="70" height="15"></a>
+            <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
+               <i class="material-icons ttr-fixed-icon">gps_fixed</i>
+               <i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
+            </div> -->
+            <div class="ttr-sidebar-toggle-button">
+               <i class="ti-arrow-left"></i>
+            </div>
+         </div>
+         <!-- side menu logo end -->
+         <!-- sidebar menu start -->
+         <nav class="ttr-sidebar-navi">
+            <ul>
+               <li>
+                  <a href="/admin_panel?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-home"></i></span>
+                         <span class="ttr-label">Dashboard</span>
+                      </a>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-plus"></i></span>
+                         <span class="ttr-label">Domains</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_domain_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_domain_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Courses</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_new_course_upload?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_courses_main?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                         <span class="ttr-label">Training Calendar</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                     <li>
+                            <a href="/admin_training_calendar_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                     <li>
+                            <a href="/admin_calendar_list_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_basic_calendar?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-calendar"></i>&nbsp;Calendar View</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Users</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                     <li>
+                         <a href="/admin_user_display_list?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Display Users</span></a>
+                      </li>
+                     <li>
+                        <a href="/admin_user_calendar_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;&nbsp;Create User Calendar</span></a>
+                     </li>
+                     <li>
+                         <a href="/admin_event_users_mapping?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Event Users Mapping</span></a>
+                      </li>
+                  </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Certification Programs</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_certification_create_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_certification_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="/admin_banner_creation?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                     <span class="ttr-label">Banner</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-comment"></i></span>
+                     <span class="ttr-label">Testimonials</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_testimonial_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_testimonial_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                        <li>
+                            <a href="/admin_testimonial_for_individual_course_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Create for Individual courses</span></a>
+                         </li>
+                        <li>
+                            <a href="/admin_testimonial_for_individual_course_edition?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit for Individual courses</span></a>
+                         </li>
+                      </ul>
+               </li>
+                <li>
+                   <a href="/admin_seo?email_person=admin" class="ttr-material-button">
+                      <span class="ttr-icon"><i class="ti-book"></i></span>
+                      <span class="ttr-label">SEO Code</span>
+                   </a>
+                </li>
+               <li>
+                  <a href="/admin_user_profile?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Profile</span>
+                      </a>
+                  </li>
+
+
+                  <li class="ttr-seperate"></li>
+            </ul>
+            <!-- sidebar menu end -->
+         </nav>
+         <!-- sidebar menu end -->
+      </div>
+   </div>
+   <!-- Left sidebar menu end -->
+
+   <!--Main container start -->
+   <main class="ttr-wrapper">
+      <div class="container-fluid">
+         <!-- Card -->
+         <div class="row">
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
+               <div class="widget-card widget-bg1">
+                  <div class="wc-item">
+                     <h4 class="wc-title">
+                        Courses
+                     </h4>
+                     <span class="wc-des">
+                        Number of courses
+                     </span>
+                     <span class="wc-stats">
+                        <span class="">{{number_of_courses}}</span>
+                     </span>
+                     <div class="progress wc-progress">
+                        <div class="progress-bar" role="progressbar" style="width: 44%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                     <span class="wc-progress-bx">
+                        <span class="wc-change">
+                        </span>
+                        <span class="wc-number ml-auto">
+                        </span>
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
+               <div class="widget-card widget-bg2">
+                  <div class="wc-item">
+                     <h4 class="wc-title">
+                         Events
+                     </h4>
+                     <span class="wc-des">
+                        Number of present events
+                     </span>
+                     <span class="wc-stats">
+                        {{number_of_events}}
+                     </span>
+                     <div class="progress wc-progress">
+                        <div class="progress-bar" role="progressbar" style="width: 58%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                     <span class="wc-progress-bx">
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
+               <div class="widget-card widget-bg3">
+                  <div class="wc-item">
+                     <h4 class="wc-title">
+                        Certification programs
+                     </h4>
+                     <span class="wc-des">
+                        Number of programs conducted
+                     </span>
+                     <span class="wc-stats">
+                        {{number_of_certification_courses}}
+                     </span>
+                     <div class="progress wc-progress">
+                        <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                     <span class="wc-progress-bx">
+                     </span>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-xl-3 col-sm-6 col-12">
+               <div class="widget-card widget-bg4">
+                  <div class="wc-item">
+                     <h4 class="wc-title">
+                        Users
+                     </h4>
+                     <span class="wc-des">
+                        Total number of users
+                     </span>
+                     <span class="wc-stats">
+                        {{number_of_users}}
+                     </span>
+                     <div class="progress wc-progress">
+                        <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Card END -->
+
+
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src='static/assets/vendors/scroll/scrollbar.min.js'></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/vendors/chart/chart.min.js"></script>
+<script src="static/assets/js/admin.js"></script>
+<script src='static/assets/vendors/calendar/moment.min.js'></script>
+<script src='static/assets/vendors/calendar/fullcalendar.js'></script>
+
+<script>
+  $(document).ready(function() {
+
+    $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      defaultDate: '2019-03-12',
+      navLinks: true, // can click day/week names to navigate views
+
+      weekNumbers: true,
+      weekNumbersWithinDays: true,
+      weekNumberCalculation: 'ISO',
+
+      editable: true,
+      eventLimit: true, // allow "more" link when too many events
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2019-03-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2019-03-07',
+          end: '2019-03-10'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2019-03-09T16:00:00'
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: '2019-03-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2019-03-11',
+          end: '2019-03-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2019-03-12T10:30:00',
+          end: '2019-03-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2019-03-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2019-03-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2019-03-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2019-03-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2019-03-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2019-03-28'
+        }
+      ]
+    });
+
+  });
+
+</script>
+</body>
+</html>

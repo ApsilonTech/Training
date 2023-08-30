@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <!-- META ============================================= -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="keywords" content="" />
+   <meta name="author" content="" />
+   <meta name="robots" content="" />
+
+   <!-- DESCRIPTION -->
+   <meta name="description" content="" />
+
+   <!-- OG -->
+   <meta property="og:title" content="" />
+   <meta property="og:description" content="" />
+   <meta property="og:image" content="" />
+   <meta name="format-detection" content="telephone=no">
+
+   <!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+
+   <!-- PAGE TITLE HERE ============================================= -->
+   <title>Timmins: Certification</title>
+
+   <!-- MOBILE SPECIFIC ============================================= -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!--[if lt IE 9]>
+   <script src="static/assets/js/html5shiv.min.js"></script>
+   <script src="static/assets/js/respond.min.js"></script>
+   <![endif]-->
+<link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+
+    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">--->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+   <!-- All PLUGINS CSS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+
+   <!-- TYPOGRAPHY ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+   <!-- SHORTCODES ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+   <!-- STYLESHEETS ============================================= -->
+   <link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+   <link rel="stylesheet" type="text/css" href="static/assets/css/certification.css">
+   <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body id="bg">
+<div id="loading-icon-bx"></div>
+
+     <script>
+     function hideLoadingIcon() {
+        var loadingIcon = document.getElementById("loading-icon-bx");
+        if (loadingIcon) {
+          loadingIcon.style.display = "none";
+        }
+    }
+    setTimeout(hideLoadingIcon, 1000);
+
+   var sessionEmail = sessionStorage.getItem("signin_mail");
+   var sessionUserName = sessionStorage.getItem("user_name");
+   if ('{{user_email}}' == sessionEmail){
+      if (sessionUserName == null){
+        if ('{{user_name}}' =="admin"){
+         sessionStorage.setItem("user_name",'{{user_name}}');
+      } else {
+          sessionStorage.setItem("user_name",'{{user_name}}');
+          recommendedArray = []
+          {% for recommended_loop in recommended_courses %}
+            recommended = []
+            recommended.push('{{recommended_loop[0]}}')
+            recommended.push('{{recommended_loop[1]}}')
+            recommended.push('{{recommended_loop[2]}}')
+
+            recommendedArray.push(recommended)
+          {% endfor %}
+          sessionStorage.setItem("recommended_courses",JSON.stringify(recommendedArray));
+      }
+      }
+   }
+</script>
+<div class="page-wraper">
+
+   <!-- Header Top ==== -->
+      <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+         <script>
+               var email = sessionStorage.getItem("signin_mail")
+               var user_name = sessionStorage.getItem("user_name")
+               var arrayValue = [email, user_name]
+               document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+               document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+         </script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                  <li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+                  <li><a href="javascript:;" class="dropdown_for_menu"><form action="/individual_category_page" method="post"><button name="category_name" value="{{categories[1]}}" style="border:none;background-color:transparent; padding:0px;">{{categories[1]}}</button></form><i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+               <ul class="sub-menu">
+                  {% for certification_courses_loop in certification_courses %}
+                  <li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';">
+                     <form action="/certification" method="post">
+                        <input name="email" class="inputTag" type="hidden">
+                        <button class="certification-button" name="certification_value" value="{{certification_courses_loop[0]}}" style="border:none;background-color:transparent;font-size:15px; margin-left:6%;" id="loop_value">
+                           {{certification_courses_loop[1]}}
+                        </button>
+                     </form>
+                  </li>
+                     <script>
+                        window.addEventListener('DOMContentLoaded', function() {
+                          var email = sessionStorage.getItem('signin_mail');
+                          var elements = document.getElementsByClassName('inputTag');
+
+                          for (var i = 0; i < elements.length; i++) {
+                           elements[i].value = email;
+                          }
+                        });
+                     </script>
+                  {% endfor %}
+               </ul>
+                 </li>
+                 <li><a href="/event">Training Calendar</a></li>
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+              <script>
+                     var email = sessionStorage.getItem("signin_mail")
+                     var user_name = sessionStorage.getItem("user_name")
+                     var arrayValue = [email, user_name]
+                     document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+                     document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+               </script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+   <script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+       }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+   </script>
+   <!-- Header Top END ==== -->
+
+ <!-- Hero Start -->
+        <div class="hero" id="home">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-text">
+
+                                <h1 style="line-height:1em;">{{course_name}}</h1>
+                                <h2></h2>
+                                <div class="typed-text">{{sub_text}}</div>
+                            </div>
+                            <div class="hero-btn">
+
+                                <a class="btn" href="#contact">Download Brochure</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 d-none d-md-block">
+                        <div class="hero-image">
+                            <img src="static/{{banner_image_link}}" alt="Hero Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero End -->
+
+        <div class="container-certification-box">
+            <div class="box-container">
+                <div class="box wow fadeInUp" data-wow-delay="0.2s" style="background: linear-gradient(90deg, rgba(138,219,219,1) 0%, rgba(3,208,195,1) 100%);">
+                     <i class="fa fa-certificate"></i>
+                    <h3>CERTIFICATE</h3>
+                    <p>
+                        Earn a Certificate and 48 Continuing Education Units(CEUs) from Timmins
+                    </p>
+                </div>
+
+                <div class="box wow fadeInUp" data-wow-delay="0.4s" style="background: linear-gradient(90deg, rgba(255,187,151,1) 0%, rgba(255,72,0,1) 100%);">
+                    <i class="fa fa-laptop-code"></i>
+                    <h3>DEMOS</h3>
+                    <p>
+                        Insights and coding demos from renowned Timmins faculty
+                    </p>
+                </div>
+
+                <div class="box wow fadeInUp" data-wow-delay="0.5s" style="background: linear-gradient(to right, #8699fb 0%,#8340f6 100%);">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>CODING SKILLS</h3>
+                    <p>
+                        Market-ready coding skills in a high-growth market
+                    </p>
+                </div>
+
+                <div class="box wow fadeInUp" data-wow-delay="0.6s" style="background: linear-gradient(90deg, rgba(255,221,132,1) 0%, rgba(255,190,0,1) 100%);">
+                    <i class="fa fa-group"></i>
+                    <h3>FOR YOUR TEAM</h3>
+                    <p>
+                        Enroll your team and learn with your peers
+                    </p>
+                </div>
+                </div>
+        </div>
+        <!-- Service End -->
+
+    <section class="about-certification">
+        <div class="main">
+            <img src="static/assets/timmins_images/collage2.png">
+            <div class="all-text">
+                <h1>{{about_topic}}</h1>
+                <p>{{about_description}}</p>
+                <a class="btn-company" href="#contact" style="padding:15px 25px;letter-spacing:3px;background-color:#1d1a4e;color:white;">Download Brochure</a>
+            </div>
+        </div>
+    </section>
+        <!-- About End -->
+    <!-- Banner Start -->
+        <div class="banner" style="background-image:url(static/assets/timmins_images/certi-key-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="section-header text-center">
+                    <!--<p>Awesome Discount</p>-->
+                    <h2>Key Takeaways</h2>
+                </div>
+                <div class="container banner-text">
+                    {% for key_takeaways_loop in key_takeaways %}
+                    <p><i class="fa fa-check"></i>&nbsp;&nbsp;{{key_takeaways_loop}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="section-header text-center">
+                    <!--<p>Awesome Discount</p>-->
+                    <h2>Who is it for?</h2>
+                </div>
+                <div class="container banner-text">
+                    <p><i class="fa fa-check"></i>&nbsp;&nbsp;{{who_is_this_program_for}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Banner End -->
+    <!-- Experience Start -->
+        <div class="experience" id="experience">
+            <div class="container">
+                <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                    <h2>Program Courses</h2>
+                </header>
+                <div class="timeline">
+                    {% for program_courses_list_loop in program_courses_list %}
+                    <div class="timeline-item {{program_courses_list_loop[2]}} wow slideInLeft" data-wow-delay="0.1s">
+                        <div class="timeline-text">
+                            <!--<div class="timeline-date">2045 - 2050</div>-->
+                            <form action="/course_details" method="post">
+                                <h2>{{program_courses_list_loop[0]}}</h2>
+                                <button style="border: none; padding: 5px 10px;" name="course_id" value="{{program_courses_list_loop[3]}}" class="btn-company">View This Course</button>
+                            </form><br>
+                                <!--<h4>oft Agency, San Francisco, CA</h4>-->
+                            <p>{{program_courses_list_loop[1]}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Job Experience End -->
+
+       <!-- Contact Start -->
+        <div class="contact" id="contact">
+            <div class="container-fluid" style="background: url(static/assets/timmins_images/devfolio_main.png) left center no-repeat;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8">
+                            <div class="contact-form">
+                                <h1 style="text-align:center;color:white;">Get Your Brochure</h1>
+                                <div id="success"></div>
+                                <form id="contactForm" action="/brochure_update" method="post" onsubmit="return brochureValidateForm()">
+                                    <input type="hidden" name="certification_name" value="{{course_name}}">
+                                    <div class="control-group">
+                                        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" required/>
+                                        <p class="help-block"></p>
+                                        <p id="firstNameError" style="display: none; color: red;">Please enter only characters</p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" name="last_name" class="form-control" id="last_name" placeholder="Last Name" required/>
+                                        <p class="help-block"></p>
+                                        <p id="lastNameError" style="display: none; color: red;">Please enter only characters</p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="email" name="email" class="form-control" id="email" placeholder="Email" required/>
+                                        <p class="help-block"></p>
+                                        <p id="emailError" style="display: none; color: red;">Invalid email</p>
+                                    </div>
+                                    <div class="control-group">
+                                        <input type="text" name="phone_number" class="form-control" id="phone" placeholder="Phone Number" required/>
+                                        <p class="help-block"></p>
+                                        <p id="phoneError" style="display: none; color: red;">Please enter only numbers</p>
+                                    </div>
+
+                                    <!--<div class="control-group">
+                                        <input type="text" name="work_experience" class="form-control" id="work_experience" placeholder="Work Experience" required="required" data-validation-required-message="Please enter your name" />
+                                        <p class="help-block"></p>
+                                    </div>-->
+                                    <div class="control-group">
+                                        <input type="text" name="country" class="form-control" id="country" placeholder="Country" required/>
+                                        <p class="help-block"></p>
+                                        <p id="countryError" style="display: none; color: red;">Please enter only characters</p>
+                                    </div>
+                                    <div class="control-group">
+                                        <p style="color:white;">Inquiring for:</p>
+                                              <input type="radio" id="html" name="inquiring" value="Myself" checked>
+                                              <label for="html" style="color:white;">Myself</label><br>
+                                              <input type="radio" id="css" name="inquiring" value="Team/Group">
+                                              <label for="css" style="color:white;">Team/Group</label><br>
+
+                                    </div>
+                                    {% for message in get_flashed_messages() %}
+                                        <p style="font-size:12px;color:red;">{{message}}</p>
+                                    {% endfor %}
+                                    <div>
+                                        <button class="btn" type="submit" id="sendMessageButton">Download Brochure</button>
+                                    </div>
+                                </form>
+                      <script>
+                      const firstNameInput = document.getElementById('first_name');
+                      const lastNameInput = document.getElementById('last_name');
+                      const phoneInput = document.getElementById('phone');
+                      const countryInput = document.getElementById('country');
+                      const emailInput = document.getElementById('email');
+                      const firstNameError = document.getElementById('firstNameError');
+                      const lastNameError = document.getElementById('lastNameError');
+                      const phoneError = document.getElementById('phoneError');
+                      const countryError = document.getElementById('countryError');
+                      const emailError = document.getElementById('emailError');
+
+                      document.getElementById('contactForm').addEventListener('submit', function(event) {
+                              if (!validateFirstName()) {
+                                event.preventDefault(); // Prevent form submission
+                                firstNameError.style.display = 'block'; // Show error message
+                                lastNameError.style.display = 'none'; // Show error message
+                                phoneError.style.display = 'none'; // Show error message
+                                countryError.style.display = 'none'; // Show error message
+                                emailError.style.display = 'none'; // Show error message
+                              }
+                              if (!validateLastName()) {
+                                event.preventDefault(); // Prevent form submission
+                                lastNameError.style.display = 'block'; // Show error message
+                                firstNameError.style.display = 'none'; // Show error message
+                                phoneError.style.display = 'none'; // Show error message
+                                countryError.style.display = 'none'; // Show error message
+                                emailError.style.display = 'none'; // Show error message
+                              }
+
+                              if (!validatePhone()) {
+                                event.preventDefault(); // Prevent form submission
+                                phoneError.style.display = 'block'; // Show error message
+                                firstNameError.style.display = 'none'; // Show error message
+                                lastNameError.style.display = 'none'; // Show error message
+                                countryError.style.display = 'none'; // Show error message
+                                emailError.style.display = 'none'; // Show error message
+                              }
+                              if (!validateCountry()) {
+                                event.preventDefault(); // Prevent form submission
+                                countryError.style.display = 'block'; // Show error message
+                                firstNameError.style.display = 'none'; // Show error message
+                                lastNameError.style.display = 'none'; // Show error message
+                                phoneError.style.display = 'none'; // Show error message
+                                emailError.style.display = 'none'; // Show error message
+                              }
+                              if (!validateEmail()) {
+                                event.preventDefault(); // Prevent form submission
+                                emailError.style.display = 'block'; // Show error message
+                                firstNameError.style.display = 'none'; // Show error message
+                                lastNameError.style.display = 'none'; // Show error message
+                                phoneError.style.display = 'none'; // Show error message
+                                countryError.style.display = 'none'; // Show error message
+                              }
+
+                              if (validateFirstName() && validateLastName() && validatePhone() && validateCountry() && validateEmail()) {
+                                alert('Thank you for your interest! We have emailed the brochure to the provided mail address.')
+                              }
+                            });
+
+                      function validateFirstName() {
+                        const firstName = firstNameInput.value;
+                        // Regular expression to match only alphabetic characters
+                        const regex = /^[A-Za-z\s]+$/;
+                        return regex.test(firstName);
+                      }
+                      function validateLastName() {
+                        const lastName = lastNameInput.value;
+                        // Regular expression to match only alphabetic characters
+                        const regex = /^[A-Za-z\s]+$/;
+                        return regex.test(lastName);
+                      }
+                      function validatePhone() {
+                        const phone = phoneInput.value;
+                        // Regular expression to match only numeric characters
+                        const regex = /^[0-9]+$/;
+                        return regex.test(phone);
+                      }
+                      function validateCountry() {
+                        const country = countryInput.value;
+                        // Regular expression to match only alphabetic characters
+                        const regex = /^[A-Za-z\s]+$/;
+                        return regex.test(country);
+                      }
+                      function validateEmail() {
+                        const email = emailInput.value;
+                        // Regular expression to match only alphabetic characters
+                        const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+                        return regex.test(email);
+                      }
+                    </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+    <script>
+    function brochureValidateForm() {
+        var firstName = document.getElementById("first_name").value;
+        var lastName = document.getElementById("last_name").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phone").value;
+        var country = document.getElementById("country").value;
+
+        if (firstName === "" || lastName === "" || email === "" || phoneNumber === "" || country === "") {
+            alert("Please fill in all required fields.");
+            return false; // Prevent form submission
+        } else {
+
+            return true; // Allow form submission
+        }
+    }
+</script>
+   <!-- Footer ==== -->
+    <footer>
+        <div class="footer-top">
+         <br>
+            <div class="container">
+                <div class="row">
+               <div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
+                            <h5 class="footer-title">About</h5>
+                     <p class="text-capitalize m-b20">Timmins is a knowledge-sharing enterprise that creates world-class training, consulting & staffing experiences in niche technology.</p>
+                            <div class="subscribe-form m-b20">
+                        <form class="subscription-form" action="#" method="post">
+                           <div class="ajax-message"></div>
+                           <div class="input-group">
+                            <span class="input-group-btn">
+                                  <a href="/download" class="btn-company">Download Company Profile</a>
+							</span>
+                           </div>
+                        </form>
+                     </div>
+                        </div>
+                    </div>
+               <div class="col-12 col-lg-5 col-md-7 col-sm-12">
+                  <div class="row">
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Quick links</h5>
+                           <ul>
+                              <li><a href="/">Home</a></li>
+                              <li><a href="/all_courses">Courses</a></li>
+                              <li><a href="/event">Events</a></li>
+                              <li><a href="/why_timmins">Why Timmins</a></li>
+
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Featured articles</h5>
+                           <ul>
+                              <li><a href="/blogs_timmins">Blogs</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-4 col-lg-4 col-md-4 col-sm-4">
+                        <div class="widget footer_widget">
+                           <h5 class="footer-title">Our offices</h5>
+                           <ul>
+                              <li><a href="#" class="inactiveLink">Canada</a></li>
+                              <li><a href="#" class="inactiveLink">Malaysia</a></li>
+                              <li><a href="#" class="inactiveLink">Indonesia</a></li>
+
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="#" style="font-size:10px;">&#169; 2021 Timmins Training Consulting Inc. All rights reserved</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END ==== -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+<script src="static/assets/js/reveal.js"></script>
+<!--<script src='static/assets/vendors/switcher/switcher.js'></script>-->
+<!-- Revolution JavaScripts Files -->
+<script src="static/assets/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="static/assets/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+ <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="static/lib/easing/easing.min.js"></script>
+        <script src="static/lib/wow/wow.min.js"></script>
+        <script src="static/lib/waypoints/waypoints.min.js"></script>
+        <script src="static/lib/typed/typed.min.js"></script>
+        <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="static/lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="static/lib/lightbox/js/lightbox.min.js"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="static/mail/jqBootstrapValidation.min.js"></script>
+        <!--<script src="static/mail/contact.js"></script>-->
+
+        <!-- Template Javascript -->
+        <script src="static/assets/js/certification.js"></script>
+
+
+</body>
+
+</html>

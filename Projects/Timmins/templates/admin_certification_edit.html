@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+ <!-- META ============================================= -->
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="keywords" content="" />
+ <meta name="author" content="" />
+ <meta name="robots" content="" />
+
+ <!-- DESCRIPTION -->
+ <meta name="description" content="" />
+
+ <!-- OG -->
+ <meta property="og:title" content="" />
+ <meta property="og:description" content="" />
+ <meta property="og:image" content="" />
+ <meta name="format-detection" content="telephone=no">
+
+ <!--------FAVICON------------------------->
+    <link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+ <!-- PAGE TITLE HERE ============================================= -->
+ <title>Timmins: admin-certification-edit</title>
+
+ <!-- MOBILE SPECIFIC ============================================= -->
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!--[if lt IE 9]>
+ <script src="static/assets/js/html5shiv.min.js"></script>
+ <script src="static/assets/js/respond.min.js"></script>
+ <![endif]-->
+
+ <!-- All PLUGINS CSS ============================================= -->
+ <link rel="stylesheet" type="text/css" href="static/assets/css/admin-assets.css">
+ <link rel="stylesheet" type="text/css" href="static/assets/vendors/calendar/fullcalendar.css">
+
+ <!-- TYPOGRAPHY ============================================= -->
+ <link rel="stylesheet" type="text/css" href="static/assets/css/admin-typography.css">
+
+ <!-- SHORTCODES ============================================= -->
+ <link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/admin-shortcodes.css">
+
+ <!-- STYLESHEETS ============================================= -->
+ <link rel="stylesheet" type="text/css" href="static/assets/css/admin-style.css">
+ <link rel="stylesheet" type="text/css" href="static/assets/css/admin-dashboard.css">
+ <link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/admin-color-1.css">
+ <style>
+ table{
+ border-collapse: collapse;
+ width: 100%;
+ }
+ td, th{
+ border: 1px solid #dddddd;
+ text-align: left;
+ padding: 8px;
+ }
+ tr:nth-child(even){
+ background-color: #dddddd;
+ }
+
+ .popup {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ background-color: #fff;
+ border: 1px solid #ccc;
+ padding: 20px;
+ text-align: center;
+ }
+
+ .popup button {
+ margin: 5px;
+ }
+
+ .popup .button-group {
+ display: flex;
+ justify-content: center;
+ }
+
+ .popup .button-group button {
+ margin: 5px;
+ }
+ </style>
+</head>
+<body class="ttr-opened-sidebar ttr-pinned-sidebar">
+
+ <!-- header start -->
+ <header class="ttr-header">
+ <div class="ttr-header-wrapper">
+ <!--sidebar menu toggler start -->
+ <div class="ttr-toggle-sidebar ttr-material-button">
+ <i class="ti-close ttr-open-icon"></i>
+ <i class="ti-menu ttr-close-icon"></i>
+ </div>
+ <!--sidebar menu toggler end -->
+ <!--logo start -->
+
+ <!--logo end -->
+ <div class="ttr-header-menu">
+ <!-- header left menu start -->
+ <ul class="ttr-header-navigation">
+ <li>
+ <a href="/" class="ttr-material-button ttr-submenu-toggle">HOME</a>
+ </li>
+
+ </ul>
+ <!-- header left menu end -->
+ </div>
+ <div class="ttr-header-right ttr-with-seperator">
+ <!-- header right menu start -->
+
+ <!-- header right menu end -->
+ </div>
+ <!--header search panel start -->
+ <div class="ttr-search-bar">
+ <form class="ttr-search-form">
+ <div class="ttr-search-input-wrapper">
+ <input type="text" name="qq" placeholder="search something..." class="ttr-search-input">
+ <button type="submit" name="search" class="ttr-search-submit"><i class="ti-arrow-right"></i></button>
+ </div>
+ <span class="ttr-search-close ttr-search-toggle">
+ <i class="ti-close"></i>
+ </span>
+ </form>
+ </div>
+ <!--header search panel end -->
+ </div>
+ </header>
+ <!-- header end -->
+ <!-- Left sidebar menu start -->
+ <div class="ttr-sidebar">
+ <div class="ttr-sidebar-wrapper content-scroll">
+ <!-- side menu logo start -->
+ <div class="ttr-sidebar-logo">
+ <a href="/"><img alt="" src="static/assets/timmins_images/logo.png" width="70" height="15"></a>
+ <!-- <div class="ttr-sidebar-pin-button" title="Pin/Unpin Menu">
+ <i class="material-icons ttr-fixed-icon">gps_fixed</i>
+ <i class="material-icons ttr-not-fixed-icon">gps_not_fixed</i>
+ </div> -->
+ <div class="ttr-sidebar-toggle-button">
+ <i class="ti-arrow-left"></i>
+ </div>
+ </div>
+ <!-- side menu logo end -->
+ <!-- sidebar menu start -->
+ <nav class="ttr-sidebar-navi">
+            <ul>
+               <li>
+                  <a href="/admin_panel?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-home"></i></span>
+                         <span class="ttr-label">Dashboard</span>
+                      </a>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-plus"></i></span>
+                         <span class="ttr-label">Domains</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_domain_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_domain_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="courses.html" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Courses</span>
+                            <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                        <ul>
+                         <li>
+                            <a href="/admin_new_course_upload?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_courses_main?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-calendar"></i></span>
+                         <span class="ttr-label">Training Calendar</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                     <li>
+                            <a href="/admin_training_calendar_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                     <li>
+                            <a href="/admin_calendar_list_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_basic_calendar?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-calendar"></i>&nbsp;Calendar View</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Users</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                      <li>
+                         <a href="/admin_user_display_list?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Display Users</span></a>
+                      </li>
+                     <li>
+                        <a href="/admin_user_calendar_create?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;&nbsp;Create User Calendar</span></a>
+                     </li>
+                      <li>
+                         <a href="/admin_event_users_mapping?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;&nbsp;Event Users Mapping</span></a>
+                      </li>
+                  </ul>
+                  </li>
+                    <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                         <span class="ttr-label">Certification Programs</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                      </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_certification_create_new?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_certification_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      </ul>
+                  </li>
+               <li>
+                  <a href="/admin_banner_creation?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-book"></i></span>
+                     <span class="ttr-label">Banner</span>
+                  </a>
+               </li>
+                <li>
+                  <a href="#" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-comment"></i></span>
+                     <span class="ttr-label">Testimonials</span>
+                     <span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  <ul>
+                         <li>
+                            <a href="/admin_testimonial_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Add New</span></a>
+                         </li>
+                         <li>
+                            <a href="/admin_testimonial_view?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit</span></a>
+                         </li>
+                      <li>
+                            <a href="/admin_testimonial_for_individual_course_creation?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-plus"></i>&nbsp;Create for Individual courses</span></a>
+                         </li>
+                        <li>
+                            <a href="/admin_testimonial_for_individual_course_edition?email_person=admin" class="ttr-material-button"><span class="ttr-label"><i class="ti ti-pencil"></i>&nbsp;Edit for Individual courses</span></a>
+                         </li>
+                      </ul>
+               </li>
+                <li>
+                   <a href="/admin_seo?email_person=admin" class="ttr-material-button">
+                      <span class="ttr-icon"><i class="ti-book"></i></span>
+                      <span class="ttr-label">SEO Code</span>
+                   </a>
+                </li>
+               <li>
+                  <a href="/admin_user_profile?email_person=admin" class="ttr-material-button">
+                     <span class="ttr-icon"><i class="ti-user"></i></span>
+                         <span class="ttr-label">Profile</span>
+                      </a>
+                  </li>
+
+
+                  <li class="ttr-seperate"></li>
+            </ul>
+            <!-- sidebar menu end -->
+         </nav>
+ <!-- sidebar menu end -->
+ </div>
+ </div>
+ <!-- Left sidebar menu end -->
+
+ <!--Main container start -->
+ <main class="ttr-wrapper">
+ <div class="container-fluid">
+ <div class="row">
+ <!-- Your Profile Views Chart -->
+ <div class="col-lg-12 m-b30">
+ <div class="widget-box">
+ <div class="wc-title row">
+ <div class="col-lg-6 col-sm-6">
+ <h2>{{certification_course_individual_details[0][1]}}</h2>
+ </div>
+ <!--<div class="col-lg-6 col-sm-6">
+ <i class="fa fa-edit" style="float: right; font-size: 30px; cursor: pointer;" onclick="ableToEditFunc()"></i>
+ </div>-->
+ <div class="col-lg-6 col-sm-6">
+ <i class="fa fa-trash" style="float: right; font-size: 30px; cursor: pointer;" onclick="ableToDeleteFunc()"></i>
+ </div>
+ </div>
+ <div class="widget-inner">
+ <form action="/admin_certification_course_update?email_person=admin" method="post" enctype="multipart/form-data">
+ <input id="certification_course_id" name="certification_course_id" value="{{certification_course_individual_details[0][0]}}" type="hidden" required="" class="form-control">
+
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Certification Course Name</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input type="text" value="{{certification_course_individual_details[0][1]}}" name="certification_course_name" id="certification_course_name" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>sub_text</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="sub_text" name="sub_text" value="{{certification_course_individual_details[0][2]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Who Is This Program For</label>
+ <p style="font-size:12px;">Kindly Use the " $ " at the end of each Sentence</p>
+ <p style="font-size:12px;">For.eg: Hi this is me.$ How are You?</p>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="who_is_this_program_for" name="who_is_this_program_for" value="{{certification_course_individual_details[0][3]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>short Description</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <textarea id="short_description" name="short_description" required="" class="form-control" style="height:auto;min-height:100px;">{{certification_course_individual_details[0][13]}}</textarea>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Program Courses</label>
+ <p style="font-size:12px;"> By holding down the Ctrl (or Command on Mac) key,
+ you can select multiple options from the dropdown.</p>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <select name="program_courses" id="programCourses" style="border-color:solid 1px;height:400px;min-width:100px;" multiple required>
+ <option selected disabled style="background-color:transparent;" value="">Select Program Courses</option>
+ {% for course_name_loop in course_name %}
+ <option value="{{course_name_loop[0]}}">{{course_name_loop[0]}}</option>
+ {% endfor %}
+ </select>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Selected Courses</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <textarea id="selectedOptions" name="selected_courses" class="form-control" style="height:auto;min-height:100px;" required>{{certification_course_individual_details[0][4]}}</textarea>
+ </div>
+ </div>
+ </div>
+ </div>
+ <script>
+ const dropdown = document.getElementById("programCourses");
+ const selectedOptionsInput = document.getElementById("selectedOptions");
+ const selectedCourses = "{{ certification_course_individual_details[0][4] }}".split(", ");
+
+ dropdown.addEventListener("change", function() {
+ const selectedOptions = Array.from(this.selectedOptions)
+ .filter(option => !option.disabled) // Exclude disabled option
+ .map(option => option.value);
+ selectedOptionsInput.value = selectedOptions.join(", ");
+ });
+
+ // Pre-select the options in the dropdown
+ for (let i = 0; i < dropdown.options.length; i++) {
+ if (selectedCourses.includes(dropdown.options[i].value)) {
+ dropdown.options[i].selected = true;
+ }
+ }
+ </script>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Program Topic Paragraphs</label>
+ <p style="font-size:12px;">Kindly Use the " $ " at the end of every point</p>
+ <p style="font-size:12px;">For.eg: Hi this is me.$ How are You?</p>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <textarea id="program_topic_paragraphs" name="program_topic_paragraphs" class="form-control" style="height:auto;min-height:300px;">{{certification_course_individual_details[0][5]}}</textarea>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Key Takeaways</label>
+ <p style="font-size:12px;">Kindly Use the " $ " at the end of every point</p>
+ <p style="font-size:12px;">For.eg: Hi this is me.$ How are You?</p>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <textarea id="key_takeaways" name="key_takeaways" required="" class="form-control" style="height:auto;min-height:100px;">{{certification_course_individual_details[0][6]}}</textarea>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Last Day To Enroll</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="last_day_to_enroll" name="last_day_to_enroll" value="{{certification_course_individual_details[0][7]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Duration</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="duration" name="duration" value="{{certification_course_individual_details[0][8]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Program Fee</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="program_fee" name="program_fee" value="{{certification_course_individual_details[0][9]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+  <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>About Topic</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="about_topic" name="about_topic" value="{{certification_course_individual_details[0][15]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>About Description</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input id="about_description" name="about_description" value="{{certification_course_individual_details[0][16]}}" type="text" required="" class="form-control">
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Upload Banner Image</label>
+ <p style="font-size:12px;">Image must be in 'png' format</p>
+ <p style="font-size:12px;">Height: 3477px | Width: 3654px</p>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input type="file" id="banner_image_upload" name="banner_image_upload" accept="image/*">
+ </div>
+ </div>
+ </div>
+ </div>
+ <input id="banner_image_link" name="banner_image_link" type="hidden" required="" class="form-control">
+
+ <script>
+ // Get the input field and file upload element
+ const bannerfileUpload = document.getElementById("banner_image_upload");
+ const bannerimageLinkInput = document.getElementById("banner_image_link");
+
+ // Listen for a change in the file input
+ bannerfileUpload.addEventListener("change", function() {
+
+ // Get the file name
+ const banner_fileName = bannerfileUpload.files[0].name;
+
+ // Set the input field value with the file name and path
+ const bannerimagePath = "assets/timmins_images/certifications/" + banner_fileName;
+ bannerimageLinkInput.value = bannerimagePath;
+ });
+ </script>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Upload Image</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input type="file" id="image_upload" name="image_upload" accept="image/*">
+ </div>
+ </div>
+ </div>
+ </div>
+ <input id="image_link" name="image_link" type="hidden" required="" class="form-control">
+
+ <script>
+ // Get the input field and file upload element
+ const fileUpload = document.getElementById("image_upload");
+ const imageLinkInput = document.getElementById("image_link");
+
+ // Listen for a change in the file input
+ fileUpload.addEventListener("change", function() {
+
+ // Get the file name
+ const fileName = fileUpload.files[0].name;
+
+ // Set the input field value with the file name and path
+ const imagePath = "assets/timmins_images/certifications/" + fileName;
+ imageLinkInput.value = imagePath;
+
+ });
+ </script>
+
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Upload Brochure</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <input type="file" id="brochure_upload" name="brochure_upload" accept="application/pdf">
+ </div>
+ </div>
+ </div>
+ </div>
+ <input id="brochure_link" name="brochure_link" type="hidden" required="" class="form-control">
+
+ <script>
+ // Get the input field and file upload element
+ const brochureUpload = document.getElementById("brochure_upload");
+ const brochureLinkInput = document.getElementById("brochure_link");
+
+ // Listen for a change in the file input
+ brochureUpload.addEventListener("change", function() {
+
+ // Get the file name
+ const brochurefileName = brochureUpload.files[0].name;
+
+ // Set the input field value with the file name and path
+ const brochurePath = "assets/timmins_images/certifications/" + brochurefileName;
+ brochureLinkInput.value = brochurePath;
+
+ });
+ </script>
+ <div class="row placeani">
+ <div class="col-lg-6">
+ <div class="form-group">
+ <label>Certification status</label>
+ </div>
+ </div>
+ <div class="col-lg-6">
+ <div class="form-group">
+ <div class="input-group">
+ <select name="certification_status" id="certification_status" style="border-color:solid 1px;height:30px;min-width:100px;" required>
+ {% if certification_course_individual_details[0][12] == 'Enable' %}
+ <option value="Enable" selected>Enable</option>
+ <option value="Disable">Disable</option>
+ {% elif certification_course_individual_details[0][12] == 'Disable' %}
+ <option value="Enable">Enable</option>
+ <option value="Disable" selected>Disable</option>
+ {% endif %}
+ </select>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="" id="saveButton">
+ <div class="">
+ <div class="row text-center">
+ <div class="col-12 col-sm-9 col-md-9 col-lg-7">
+ <button type="submit" class="btn">Save changes</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+ <h5 class="modal-title" id="exampleModalLabel">Reply to review</h5>
+ <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">&times;</span>
+ </button>
+ </div>
+ <div class="modal-body">
+ <textarea class="form-control" placeholder="Type text"></textarea>
+ </div>
+ <div class="modal-footer">
+ <button type="button" class="btn mr-auto">Reply</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <!-- Your Profile Views Chart END-->
+ </div>
+ </main>
+ <div class="ttr-overlay"></div>
+
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/admin-bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src='static/assets/vendors/scroll/scrollbar.min.js'></script>
+<script src="static/assets/js/admin-functions.js"></script>
+<script src="static/assets/vendors/chart/chart.min.js"></script>
+<script src="static/assets/js/admin.js"></script>
+<script>
+ function ableToEditFunc(){
+ document.getElementById("saveButton").style.display="block";
+ document.getElementById("certification_course_name").readOnly = false;
+ document.getElementById("sub_text").readOnly = false;
+ document.getElementById("who_is_this_program_for").readOnly = false;
+ document.getElementById("program_topic_heading").readOnly = false;
+ document.getElementById("program_topic_paragraphs").readOnly = false;
+ document.getElementById("key_takeaways").readOnly = false;
+ document.getElementById("last_day_to_enroll").readOnly = false;
+ document.getElementById("duration").readOnly = false;
+ document.getElementById("program_fee").readOnly = false;
+ }
+</script>
+<script>
+ function ableToDeleteFunc() {
+ // Selected Course Name
+ var certificationCourseId = document.getElementById("certification_course_id").value;
+
+ // Create the popup element
+ var popup = document.createElement("div");
+ popup.className = "popup";
+
+ // Create the message
+ var message = document.createElement("b");
+ message.textContent = "Are you sure you want to delete?";
+
+ // Line break
+ var breakTag1 = document.createElement("br");
+ var breakTag2 = document.createElement("br");
+
+ // Create the form
+ var yesForm = document.createElement("form");
+ yesForm.action = "/admin_certification_course_edit_delete?email_person=admin";
+ yesForm.method = "POST";
+
+ var certificationCourseIdInput = document.createElement("input");
+ certificationCourseIdInput.type = "hidden";
+ certificationCourseIdInput.name = "certification_course_id";
+ certificationCourseIdInput.value = certificationCourseId;
+
+ // Create the "Yes" button
+ var yesButton = document.createElement("button");
+ yesButton.textContent = "Yes";
+ yesButton.type = "submit";
+ yesButton.style.background = "#2E8B57";
+ yesButton.style.color = "white";
+ yesButton.style.border = "none";
+ yesButton.onclick = function() {
+ // User clicked "Yes"
+ alert("Deleting the event...");
+ };
+
+ // Create the "No" button
+ var noButton = document.createElement("button");
+ noButton.textContent = "No";
+ noButton.style.background = "#D22B2B";
+ noButton.style.color = "white";
+ noButton.style.border = "none";
+ noButton.onclick = function() {
+ // User clicked "No"
+ alert("Cancelled delete operation.");
+ document.body.removeChild(popup);
+ };
+
+ // Create a div for button group
+ var buttonGroup = document.createElement("div");
+ buttonGroup.className = "button-group";
+
+ // Add the elements to the form
+ yesForm.appendChild(certificationCourseIdInput);
+ yesForm.appendChild(yesButton);
+
+ // Add the elements to the button group
+ buttonGroup.appendChild(yesForm);
+ buttonGroup.appendChild(noButton);
+
+ // Add the elements to the popup
+ popup.appendChild(message);
+ popup.appendChild(breakTag1);
+ popup.appendChild(breakTag2);
+ popup.appendChild(buttonGroup);
+
+ // Add the popup to the document body
+ document.body.appendChild(popup);
+ }
+ </script>
+</body>
+
+</html>

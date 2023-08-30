@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+	<title>Timmins: Home</title>
+	{{seo_value[0] | safe}}
+	<link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/icon-box.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/vendors/revolution/css/settings.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+	<script async src="static/assets/js/html5shiv.min.js"></script>
+	<script async src="static/assets/js/respond.min.js"></script>
+
+	<style>
+		/*banner popup starts*/
+		.popup-overlay {
+		 background: rgba(0, 0, 0, 0.4);
+		 position: fixed;
+		 left: 0;
+		 top: 0;
+		 height: 100vh;
+		 width: 100%;
+		 opacity: 0;
+		 z-index:10;
+		 transition: all 700ms ease;
+		 pointer-events: none;
+		}
+
+		.popup-overlay.active {
+		 opacity: 1;
+		 pointer-events: auto;
+		}
+
+		.popup-container {
+		 position: fixed;
+		 left: 50%;
+		 top: 50%;
+		 transform: translate(-50%, calc(-50% + 50px));
+		 font-family: "Raleway", sans-serif;
+		 color: #fff;
+		 padding: 12px 0;
+		 box-shadow: 0 6px 55px -10px rgba(0, 0, 0, 0.7);
+		 background-size: cover;
+		 opacity: 0;
+		 pointer-events: none;
+		 transition: all 700ms ease;
+		}
+
+		.popup-overlay.active .popup-container {
+		 transform: translate(-50%, -50%);
+		 opacity: 1;
+		 pointer-events: auto;
+		}
+
+		.popup-overlay.active .left .bg-1,
+		.popup-overlay.active .left .bg-2 {
+		 transform: translateX(0);
+		}
+
+		.popup-container,
+		.popup-container * {
+		 box-sizing: border-box;
+		}
+
+		.popup-container .left img {
+		 position: absolute;
+		 bottom: 0;
+		}
+
+		.popup-container .left .bg-1 {
+		 left: 80px;
+		 transform: translateX(-20px);
+		 transition: all 1700ms ease;
+		}
+
+		.popup-container .left .bg-2 {
+		 left: 64px;
+		 transform: translateX(-20px);
+		 transition: all 1700ms ease;
+		 transition-delay: 600ms;
+		}
+
+		.popup-container .right {
+		 width: 540px;
+		 padding: 16px;
+		 padding-left: 250px;
+		}
+
+		.popup-container .skip-button {
+		 position: absolute;
+		 top: 4px;
+		 right: 4px;
+		 background: #000;
+		 padding: 2px 6px;
+		 font-size: 14px;
+		 cursor: pointer;
+		}
+
+		.popup-container p.logo {
+		 font-size: 13px;
+		 color: #febdff;
+		 text-transform: uppercase;
+		 margin-bottom: 4px;
+		}
+
+		.popup-container h2.popup-heading {
+		 font-size: 30px;
+		 text-transform: uppercase;
+		 margin: 0;
+		}
+
+		.popup-container p.description {
+		 font-size: 15px;
+		 line-height: 1.8;
+		}
+
+		.popup-container .visit-button {
+		 background: #fff;
+		 text-decoration: none;
+		 font-size: 15px;
+		 font-weight: bold;
+		 color: #000;
+		 padding: 8px 24px;
+		 margin-top: 8px;
+		 display: inline-block;
+		}
+
+		.popup-container .hero-image-small {
+		 display: none;
+		}
+
+		@media (max-width: 767px) {
+		 .popup-container .left .bg-1,
+		 .popup-container .left .bg-2,
+		 .popup-container .left .hero-image {
+		display: none;
+		 }
+
+		 .popup-container .right {
+		padding: 16px;
+		width: 300px;
+		padding-top: 4px;
+		 }
+
+		 .popup-container .left .hero-image-small {
+		display: block;
+		width: 100%;
+		 }
+
+		 .popup-container .left .hero-image-small {
+		position: relative;
+		 }
+
+		 .popup-container {
+		padding: 0;
+		 }
+		}
+		/*banner popup ends*/
+	</style>
+	<!-- REVOLUTION SLIDER END -->
+</head>
+<body id="bg">
+<div id="loading-icon-bx"></div>
+<script>
+	function hideLoadingIcon() {
+    var loadingIcon = document.getElementById("loading-icon-bx");
+    if (loadingIcon) {
+      loadingIcon.style.display = "none";
+    }
+    }
+    setTimeout(hideLoadingIcon, 2000);
+
+   var sessionEmail = sessionStorage.getItem("signin_mail");
+   var sessionUserName = sessionStorage.getItem("user_name");
+   if ('{{user_email}}' == sessionEmail){
+      if (sessionUserName == null){
+        if ('{{user_name}}' =="admin"){
+         sessionStorage.setItem("user_name",'{{user_name}}');
+      } else {
+          sessionStorage.setItem("user_name",'{{user_name}}');
+          recommendedArray = []
+          {% for recommended_loop in recommended_courses %}
+            recommended = []
+            recommended.push('{{recommended_loop[0]}}')
+            recommended.push('{{recommended_loop[1]}}')
+            recommended.push('{{recommended_loop[2]}}')
+            recommended.push('{{recommended_loop[3]}}')
+
+            recommendedArray.push(recommended)
+          {% endfor %}
+          sessionStorage.setItem("recommended_courses",JSON.stringify(recommendedArray));
+      }
+      }
+   }
+</script>
+<div class="page-wraper">
+
+	<!-- Header Top ==== -->
+      <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+			<script>
+					var email = sessionStorage.getItem("signin_mail")
+					var user_name = sessionStorage.getItem("user_name")
+					var arrayValue = [email, user_name]
+					document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+					document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+			</script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+						<li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+						<li><a href="javascript:;" class="dropdown_for_menu"><form action="/individual_category_page" method="post"><button name="category_name" value="{{categories[1]}}" style="border:none;background-color:transparent; padding:0px;">{{categories[1]}}</button></form><i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+					<ul class="sub-menu">
+						{% for certification_courses_loop in certification_courses %}
+						<li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';">
+							<form action="/certification" method="post">
+								<input name="email" class="inputTag" type="hidden">
+								<button class="certification-button" name="certification_value" value="{{certification_courses_loop[0]}}" style="border:none;background-color:transparent;font-size:15px; margin-left:6%;" id="loop_value">
+									{{certification_courses_loop[1]}}
+								</button>
+							</form>
+						</li>
+							<script>
+								window.addEventListener('DOMContentLoaded', function() {
+								  var email = sessionStorage.getItem('signin_mail');
+								  var elements = document.getElementsByClassName('inputTag');
+
+								  for (var i = 0; i < elements.length; i++) {
+									elements[i].value = email;
+								  }
+								});
+							</script>
+						{% endfor %}
+					</ul>
+            	  </li>
+                 <li><a href="/event">Training Calendar</a></li>
+				<!--<li><a href="#" class="dropdown_for_menu">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                      <li><a href="/cyber_security">Cyber Security</a></li>
+                      <li><a href="/web_development">Web Development</a></li>
+						<li><a href="/app_development">Mobile App Development</a></li>
+                    </ul>
+                  </li>-->
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+				<!--<li class="#"><a href="/admin_panel">Admin Panel</a></li>-->
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+				  <script>
+							var email = sessionStorage.getItem("signin_mail")
+							var user_name = sessionStorage.getItem("user_name")
+						  	var arrayValue = [email, user_name]
+							document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+							document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+					</script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+	<script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+       }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+ 	</script>
+
+	<!--<div id="headerPart"></div>-->
+   <!-- Header Top END ==== -->
+	<!---banner starts--->
+ <div class="popup-overlay" id="bannerDetails">
+    <div class="popup-container" style="background-image: url('static/assets/timmins_images/bg1.jpg');">
+      <div class="left">
+        <img class="bg-2" src="static/assets/timmins_images/bg-2.png" alt="" />
+        <img class="bg-1" src="static/assets/timmins_images/bg-1.png" alt="" />
+        <img class="hero-image" src="static/assets/timmins_images/hero-image.png" alt="" />
+        <img
+          class="hero-image-small"
+          src="static/assets/timmins_images/hero-image-small.png"
+          alt=""
+        />
+      </div>
+      <div class="right">
+        <div class="skip-button">Skip in 3s</div>
+   {% for banner_details_loop in banner_details %}
+        <p class="logo">{{banner_details_loop[1]}}</p>
+        <h2 class="popup-heading" style="color:white;">{{banner_details_loop[2]}}</h2>
+        <p class="description">{{banner_details_loop[3]}}
+        </p>
+   <form action="/certification" method="POST">
+        <a href="#" class="visit-button"><button value="{{banner_details_loop[4]}}" name="certification_value" style="background-color:transparent;border:none;">View Course</button></a>
+   </form>
+   {% endfor %}
+      </div>
+    </div>
+  </div>
+   <script>
+const popupOverlay = document.querySelector(".popup-overlay");
+const skipButton = document.querySelector(".popup-container .skip-button");
+const visitButton = document.querySelector(".popup-container .visit-button");
+
+let remainingTime = 3;
+let allowedToSkip = false;
+let popupTimer;
+
+const createPopupCookie = () => {
+  let expiresDays = 30;
+  let date = new Date();
+  date.setTime(date.getTime() + expiresDays * 24 * 60 * 60 * 1000);
+  let expires = "expires=" + date.toUTCString();
+  document.cookie = `popupCookie=true; ${expires}; path=/;`;
+};
+
+const showAd = () => {
+  popupOverlay.classList.add("active");
+  popupTimer = setInterval(() => {
+   skipButton.innerHTML = `Skip in ${remainingTime}s`;
+   remainingTime--;
+
+   if (remainingTime < 0) {
+     allowedToSkip = true;
+     skipButton.innerHTML = "Skip";
+     clearInterval(popupTimer);
+   }
+  }, 1000);
+};
+
+const skipAd = () => {
+  popupOverlay.classList.remove("active");
+  createPopupCookie();
+};
+
+skipButton.addEventListener("click", () => {
+  if (allowedToSkip) {
+   skipAd();
+  }
+});
+
+const startTimer = () => {
+  if (window.scrollY > 500) {
+   showAd();
+   window.removeEventListener("scroll", startTimer);
+  }
+};
+
+if (!document.cookie.match(/^(.*;)?\s*popupCookie\s*=\s*[^;]+(.*)?$/)) {
+  window.addEventListener("scroll", startTimer);
+}
+
+//Disable script
+if("{{banner_details[0][5]}}" == "Disabled"){
+   document.getElementById("bannerDetails").style.display = "None";
+}
+</script>
+
+      <!--banner end--->
+
+
+
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- Main Slider -->
+        <div class="rev-slider">
+			<div id="rev_slider_486_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="news-gallery36" data-source="gallery" style="margin:0px auto;background-color:#ffffff;padding:0px;margin-top:0px;margin-bottom:0px;">
+				<!-- START REVOLUTION SLIDER 5.3.0.2 fullwidth mode -->
+				<div id="rev_slider_486_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.3.0.2">
+					<ul>
+						<!--------single slide starts---->
+						<li data-index="rs-300"
+						data-transition="parallaxvertical"
+						data-slotamount="default"
+						data-hideafterloop="0"
+						data-hideslideonmobile="off"
+						data-easein="default"
+						data-easeout="default"
+						data-masterspeed="default"
+						data-thumb="static/assets/images/slider/slide1.jpg"
+						data-rotate="0"
+						data-fstransition="fade"
+						data-fsmasterspeed="1500"
+						data-fsslotamount="7"
+						data-saveperformance="off"
+						data-title="A STUDY ON HAPPINESS"
+						data-param1="" data-param2=""
+						data-param3="" data-param4=""
+						data-param5="" data-param6=""
+						data-param7="" data-param8=""
+						data-param9="" data-param10=""
+						data-description="Science says that Women are generally happier">
+							<!-- MAIN IMAGE -->
+							<img src="static/assets/timmins_images/home_slides/slide_new4.1.jpg" alt=""
+								data-bgposition="center center"
+								data-bgfit="cover"
+								data-bgrepeat="no-repeat"
+								data-bgparallax="10"
+								class="rev-slidebg"
+								data-no-retina />
+
+							<!-- LAYER NR. 1 -->
+							<div class="tp-caption tp-shape tp-shapewrapper "
+								id="slide-300-layer-1"
+								data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+								data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']"
+								data-width="full"
+								data-height="full"
+								data-whitespace="nowrap"
+								data-type="shape"
+								data-basealign="slide"
+								data-responsive_offset="off"
+								data-responsive="off"
+								data-frames='[{"from":"opacity:0;","speed":1,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},{"delay":"wait","speed":1000,"to":"opacity:1;","ease":"Power4.easeOut"}]'
+								data-textAlign="['left','left','left','left']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 5;background-color:rgba(2, 0, 11, 0.2);border-color:rgba(0, 0, 0, 0);border-width:0px;">
+							</div>
+
+							<!-- LAYER NR. 2 -->
+							<div class="tp-caption Newspaper-Title   tp-resizeme"
+								id="slide-300-layer-2"
+								data-x="['center','center','center','center']"
+								data-hoffset="['0','0','0','0']"
+								data-y="['top','top','top','top']"
+								data-voffset="['250','250','250','240']"
+								data-fontsize="['50','50','50','30']"
+								data-lineheight="['55','55','55','35']"
+								data-width="full"
+								data-height="none"
+								data-whitespace="normal"
+								data-type="text"
+								data-responsive_offset="on"
+								data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":100,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[10,10,10,10]"
+								data-paddingleft="[0,0,0,0]"
+								style="color: white;z-index: 6;Font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, sans-serif; font-weight:700; text-align:center; white-space: normal;">
+									Live classes with an expert trainer
+							</div>
+
+							<!-- LAYER NR. 3 -->
+
+
+							<!-- LAYER NR. 3 -->
+							<div class="tp-caption Newspaper-Subtitle   tp-resizeme"
+								id="slide-300-layer-4"
+								data-x="['center','center','center','center']"
+								data-hoffset="['0','0','0','0']"
+								data-y="['top','top','top','top']"
+								data-voffset="['320','320','320','290']"
+								data-width="['800','800','700','420']"
+								data-height="['100','100','100','120']"
+								data-whitespace="unset"
+								data-type="text"
+								data-responsive_offset="on"
+								data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+								data-textAlign="['center','center','center','center']"
+								data-paddingtop="[0,0,0,0]"
+								data-paddingright="[0,0,0,0]"
+								data-paddingbottom="[0,0,0,0]"
+								data-paddingleft="[0,0,0,0]"
+								style="z-index: 7; white-space: unset; color:#fff;Font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, sans-serif; font-size:18px; line-height:28px; font-weight:400;">
+									<i>Experience dynamic learning with live classes led by industry experts, enriched by immersive hands-on exercises, ensuring practical application and mastery of skills</i>
+							</div>
+							<!-- single slide end-->
+						</li>
+						<!-- SLIDE  -->
+					</ul>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div>
+		</div>
+        <!-- Main Slider -->
+		<div class="content-block">
+
+			<!-- Our Services -->
+			<!--<div class="section-area content-inner service-info-bx">
+                <div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="service-bx">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/home_slides/image_3.jpg" alt="">
+								</div>
+								<div class="info-bx text-center">
+									<div class="feature-box-sm radius bg-white">
+										<i class="fa fa-suitcase text-primary"></i>
+									</div>
+									<h4>Corporate Training</h4>
+									<a href="/all_courses" class="btn radius-xl">View Courses</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="service-bx">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/home_slides/join_community.jpg" alt="">
+								</div>
+								<div class="info-bx text-center">
+									<div class="feature-box-sm radius bg-white">
+										<i class="fa fa-laptop text-primary"></i>
+									</div>
+									<h4>Software Consultancy</h4>
+									<a href="/services" class="btn radius-xl">View Services</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12">
+							<div class="service-bx m-b0">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/home_slides/image_1.jpg" alt="">
+								</div>
+								<div class="info-bx text-center">
+									<div class="feature-box-sm radius bg-white">
+										<i class="fa fa-users text-primary"></i>
+									</div>
+									<h4>IT Staffing</h4>
+									<a href="/it_staffing" class="btn radius-xl">View More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>-->
+            <!-- Our Services END -->
+			<!-- Recommended Courses -->
+			<div class="section-area section-sp2 popular-courses-bx" id="recommended_block">
+						 <div class="container">
+				  <div class="row">
+					 <div class="col-md-12 heading-bx left">
+						<h2 class="title-head">Recommended <span>Courses</span></h2>
+					 </div>
+				  </div>
+				  <div class="row">
+					 <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0" id="recommended_courses">
+					 </div>
+				  </div>
+			   </div>
+			</div>
+			<script>
+			   var email = sessionStorage.getItem("signin_mail")
+			   var user_name = sessionStorage.getItem("user_name")
+			   var recommendedCourses = JSON.parse(sessionStorage.getItem("recommended_courses"))
+			   if (email != null && user_name != "admin"){
+				  for(var i=0; i< recommendedCourses.length; i++){
+					  var formH5Div3 = document.createElement("form")
+					   formH5Div3.setAttribute("action","/course_details")
+					   formH5Div3.setAttribute("method","post")
+							var buttonH5Div3 = document.createElement("button")
+							buttonH5Div3.style.border = "none"
+							buttonH5Div3.style.backgroundColor = "transparent"
+							buttonH5Div3.style.padding = "0px"
+							buttonH5Div3.setAttribute("name","course_id")
+							buttonH5Div3.setAttribute("value",recommendedCourses[i][3])
+							buttonH5Div3.style.padding="5px";
+								  var divItem = document.createElement("div")
+								  divItem.setAttribute("class","item")
+									 var div2 = document.createElement("div")
+									 div2.setAttribute("class","cours-bx")
+									 div2.setAttribute("id","recommended-cours-bx")
+										var div21 = document.createElement("div")
+										div21.setAttribute("class","action-box-all-courses")
+										   var imgDiv21 = document.createElement("img")
+										   var imageLoc = "static/" + recommendedCourses[i][1];
+										   imgDiv21.setAttribute("src",imageLoc)
+										   imgDiv21.setAttribute("alt","")
+										   div21.append(imgDiv21)
+										div2.append(div21)
+									 divItem.append(div2)
+									 var div3 = document.createElement("div")
+									 div3.setAttribute("id","recommended_course_content")
+									 //div3.style.border="1px solid";
+									 div3.setAttribute("class","info-bx text-center")
+										var h5Div3 = document.createElement("h5")
+											h5Div3.innerHTML = recommendedCourses[i][0];
+										div3.append(h5Div3)
+
+										var spanDiv3 = document.createElement("span")
+										spanDiv3.innerHTML = recommendedCourses[i][2]
+										div3.append(spanDiv3)
+									 divItem.append(div3)
+						 	buttonH5Div3.append(divItem)
+						 formH5Div3.append(buttonH5Div3)
+					  document.getElementById("recommended_courses").appendChild(formH5Div3)
+				  }
+			   }else {
+				  document.getElementById("recommended_block").style.display="none"
+			   }
+			</script>
+			<!-- recommended courses ends -->
+			<!-- Popular Courses -->
+			<div id="delayedDiv" class="section-area section-sp2 popular-courses-bx" style="background-color:#f8f8f8;display: none;">
+						 <div class="container">
+				  <div class="row">
+					 <div class="col-md-12 heading-bx left">
+						<h2 class="title-head">Popular <span>Courses</span></h2>
+					 </div>
+				  </div>
+				  <div class="row">
+				  <div class="courses-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+					 {% for popular_courses_loop in popular_courses %}
+					  <form action="/course_details" method="post">
+						  <button name="course_id" value="{{popular_courses_loop[2]}}" style="background-color:transparent;border:none;padding: 0px;">
+							 <div class="item">
+								<div class="cours-bx">
+								   <div class="action-box-all-courses">
+									  <img src="static/{{popular_courses_loop[1]}}" alt="">
+								   </div>
+								   <div class="info-bx text-center" style="background-color:white;">
+									  <h5>{{popular_courses_loop[0]}}</h5>
+									  <span>{{popular_courses_loop[3]}}</span>
+								   </div>
+								</div>
+							 </div>
+						  </button>
+					  </form>
+					 {% endfor %}
+				  </div>
+				  </div>
+			   </div>
+			</div>
+<script>
+        function showDelayedContent() {
+        document.getElementById("delayedDiv").style.display = "block";
+    }
+
+    setTimeout(showDelayedContent, 5500);
+</script>
+			<!-- Popular Courses END -->
+
+			<!--long slide for certification starts--->
+				<div id="delayedDivCertification" style="background-color:#1d1a4e;display:none;"><br><br>
+				<div class="row">
+					<div class="col-md-12 text-center heading-bx">
+					   <h1 class="title-head m-b0" style="font-weight:700;color:#f8f8f8;line-height:1.5em;">Explore Our <br>Certification Programs</h1>
+
+					</div>
+				  </div><br>
+				<div class="card-container-certification reveal">
+					{% for certification_courses_loop in certification_courses %}
+				   <div class="card-certification" style="background-color:#f8f8f8;">
+					 <img src="static/{{certification_courses_loop[10]}}" style="height:200px;" alt=""><br>
+					  <h4 style="color:#000000;">{{certification_courses_loop[1]}}</h4>
+					 <p>{{certification_courses_loop[13]}}</p>
+					   <form action="/certification" method="post">
+							<input name="email" class="inputTag" type="hidden">
+							<button class="btn" name="certification_value" value="{{certification_courses_loop[0]}}" id="loop_value">
+								Full Program
+							</button>
+					   </form>
+					   <!--<form action="#"><button class="btn" name="certification_value2" id="full_stack_java_developer">Full Program</button></form>-->
+				   </div>
+					{% endfor %}
+				</div><br><br>
+				   </div><br><br>
+				<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivCertification").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+
+			  <script>
+				  var email = sessionStorage.getItem("signin_mail")
+				  var user_name = sessionStorage.getItem("user_name")
+				  var arrayValue = [email, user_name]
+				  document.getElementById("full_stack_python_developer").setAttribute("value",arrayValue)
+				  document.getElementById("full_stack_java_developer").setAttribute("value",arrayValue)
+			  </script>
+			<!--long slide for certification ends--->
+
+
+			<!-- Form -->
+			<div id="delayedDivSkill" class="section-area section-sp1 ovpr-dark bg-fix online-cours" style="background-image:url(static/assets/timmins_images/home_slides/slide_1.jpg);display:none;">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center text-white">
+							<h2>Reskill | Upskill | Onboard & Upgrade with Timmins</h2>
+						</div>
+					</div><br>
+					<div class="mw800 m-auto">
+						<div class="row" id="statistics">
+							<div class="col-md-4 col-sm-6 col-lg-3 reveal">
+								<div class="cours-search-bx m-b30">
+									<div class="icon-box">
+										<h3><i class="ti-calendar"></i><span class="counter" style="color: #FFD500;font-weight:400;">8</span></h3>
+									</div>
+									<span class="cours-search-text">Years in Business</span>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-lg-3 reveal">
+								<div class="cours-search-bx m-b30">
+									<div class="icon-box">
+										<h3><i class="ti-world"></i><span class="counter" style="color: #FFD500;font-weight:400;">15</span></h3>
+									</div>
+									<span class="cours-search-text">Global Markets</span>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-lg-3 reveal">
+								<div class="cours-search-bx m-b30">
+									<div class="icon-box">
+										<h3><i class="ti-user"></i><span class="counter" style="color: #FFD500;font-weight:400;">96</span></h3>
+									</div>
+									<span class="cours-search-text">Clients</span>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-lg-3 reveal">
+								<div class="cours-search-bx m-b30">
+									<div class="icon-box">
+										<h3><i class="ti-desktop"></i><span class="counter" style="color: #FFD500;font-weight:400;">245</span></h3>
+									</div>
+									<span class="cours-search-text">Corporate Training</span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+				<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivSkill").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+			<!-- Form END -->
+			<!-- training calendar -->
+			<div class="section-area section-sp2 reveal" id="delayedDivTraining" style="display:none;">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center heading-bx">
+            <h1 class="title-head m-b0" style="font-weight:1000;color:#1D1A4E;">Training Calendar</h1>
+            <p class="m-b0">Premium Training Programs by Academic & Industry Experts </p>
+         </div>
+      </div>
+      <div class="row">
+      <div class="upcoming-event-carousel owl-carousel owl-btn-center-lr owl-btn-1 col-12 p-lr0  m-b30">
+         {% for events_loop in events %}
+		  <form action="/event_details" method="post">
+			  <button name="event_id" value="{{events_loop[6]}}" style="background-color:transparent;border:none;padding:0px;">
+			  <input type="hidden" name="batch_id" value="{{events_loop[7]}}">
+			  <input type="hidden" name="day_status" value="{{events_loop[8]}}">
+				 <div class="item">
+					<div class="event-bx">
+					   <div class="action-box" style="max-height:250px;">
+						  <img src="static/{{events_loop[3]}}" alt="" style="max-height:250px;">
+					   </div>
+					   <!--<a href="#" class="btn" style="float:right;" aria-current="upcoming-status">{{events_loop[2]}}</a><br>-->
+					   <div class="info-bx d-flex">
+						  <div>
+							 <div class="event-time">
+								<div class="event-date">{{events_loop[0]}}</div>
+							 </div>
+						  </div>
+						  <div class="event-info">
+								<h4 class="event-title">{{events_loop[2]}}</h4>
+							 <ul class="media-post">
+								<li><a href="#"><i class="fa fa-clock-o"></i>{{events_loop[1]}}</a></li>
+								<!--<li><a href="#"><i class="fa fa-map-marker"></i> Berlin, Germany</a></li>-->
+							 </ul>
+							 <p class="comment more">{{events_loop[5]}}</p>
+						  </div>
+					   </div>
+					</div>
+				 </div>
+			  </button>
+		  </form>
+		 {% endfor %}
+      </div>
+      </div>
+      <div class="text-center">
+         <a href="/event" class="btn">View All Event</a>
+      </div>
+   </div>
+</div>
+
+				<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivTraining").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+<script>
+   $(document).ready(function() {
+       var showChar = 100;
+       var ellipsestext = "...";
+       var moretext = "read more";
+       var lesstext = "read less";
+       $('.more').each(function() {
+           var content = $(this).html();
+           if(content.length > showChar) {
+               var c = content.substr(0, showChar);
+               var h = content.substr(showChar-1, content.length - showChar);
+               var html = c + '<span class="moreelipses">'+ellipsestext+'</span>&nbsp;<span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">'+moretext+'</a></span>';
+               $(this).html(html);
+           }
+       });
+
+       $(".morelink").click(function(){
+           if($(this).hasClass("less")) {
+               $(this).removeClass("less");
+               $(this).html(moretext);
+           } else {
+               $(this).addClass("less");
+               $(this).html(lesstext);
+           }
+           $(this).parent().prev().toggle();
+           $(this).prev().toggle();
+           return false;
+       });
+   });
+</script>
+<!-- training calendar ends-->
+
+
+			<!-- Testimonials -->
+			<div id="delayedDivTestimonials" class="section-area section-sp2 bg-fix ovbl-dark" style="background-image:url(static/assets/timmins_images/home_slides/slide_1.jpg);display:none;">
+						 <div class="container">
+				  <div class="row">
+					 <div class="col-md-12 text-white heading-bx left">
+						<h2 class="title-head text-uppercase">what people <span>say</span></h2>
+
+					 </div>
+				  </div>
+				  <div class="testimonial-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+					 {% for testimonials_loop in testimonials %}
+					 <div class="item">
+						<div class="testimonial-bx">
+						   <div class="testimonial-info">
+							  <h5 class="name">{{testimonials_loop[1]}}</h5>
+							  <p>-{{testimonials_loop[2]}}</p>
+						   </div>
+
+						   <div class="testimonial-content">
+							  <p>{{testimonials_loop[3]}}</p>
+						   </div>
+						</div>
+					 </div>
+					 {% endfor %}
+				  </div>
+			   </div>
+			</div>
+				<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivTestimonials").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+			<!-- Testimonials END -->
+
+			<!-- case study starts -->
+			<div class="section-area section-sp2 reveal" id="delayedDivCs" style="display:none;">
+                <div class="container">
+					<div class="row">
+						<div class="col-md-12 heading-bx left">
+							<h2 class="title-head">Case <span>Studies</span></h2>
+
+						</div>
+					</div>
+					<div class="recent-news-carousel owl-carousel owl-btn-1 col-12 p-lr0">
+						<div class="item">
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/case_study/niche.jpg" alt="">
+								</div>
+								<div class="info-bx">
+									<!--<ul class="media-post">
+										<li><a href="#"><i class="fa fa-calendar"></i>Jan 02 2019</a></li>
+										<li><a href="#"><i class="fa fa-user"></i>By William</a></li>
+									</ul>-->
+									<h5 class="post-title">Niche Technology Training</h5>
+									<p>5G Mobile System on Chip (SoC) Technologies Development.</p>
+									<div class="post-extra">
+										<!--<a href="{{url_for('static',filename='assets/timmins_images/cs1.pdf')}}" download="file" class="btn">Download case study</a>-->
+										<a href="/download_cs1" class="btn">Download case study</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/case_study/image2.jpg" alt="">
+								</div>
+								<div class="info-bx">
+									<!--<ul class="media-post">
+										<li><a href="#"><i class="fa fa-calendar"></i>Feb 05 2019</a></li>
+										<li><a href="#"><i class="fa fa-user"></i>By John</a></li>
+									</ul>-->
+									<h5 class="post-title">Staffing, Upskilling</h5>
+									<p>Android Mobile Development using Qualcomm Chipsets.</p>
+									<div class="post-extra">
+										<!--<a href="{{url_for('static',filename='assets/timmins_images/cs2.pdf')}}" download="file" class="btn">Download case study</a>-->
+										<a href="/download_cs2" class="btn">Download case study</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/case_study/image3.jpg" alt="">
+								</div>
+								<div class="info-bx">
+									<!--<ul class="media-post">
+										<li><a href="#"><i class="fa fa-calendar"></i>April 14 2019</a></li>
+										<li><a href="#"><i class="fa fa-user"></i>By George</a></li>
+									</ul>-->
+									<h5 class="post-title">Machine Learning Program for Data Analytics</h5>
+									<p>Hands-on Artificial Intelligence for Banking.</p>
+									<div class="post-extra">
+										<!--<a href="{{url_for('static',filename='assets/timmins_images/cs3.pdf')}}" download="file" class="btn">Download case study</a>-->
+										<a href="/download_cs3" class="btn">Download case study</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="recent-news">
+								<div class="action-box">
+									<img src="static/assets/timmins_images/case_study/image4.jpg" alt="">
+								</div>
+								<div class="info-bx">
+									<!--<ul class="media-post">
+										<li><a href="#"><i class="fa fa-calendar"></i>April 14 2019</a></li>
+										<li><a href="#"><i class="fa fa-user"></i>By George</a></li>
+									</ul>-->
+									<h5 class="post-title">5G Technology Program</h5>
+									<p>Awareness among Senior Management of Telecom Sector.</p>
+									<div class="post-extra">
+										<!--<a href="{{url_for('static',filename='assets/timmins_images/cs4.pdf')}}" download="file" class="btn">Download case study</a>-->
+										<a href="/download_cs4" class="btn">Download case study</a>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivCs").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+			<!-- case study End -->
+
+        </div>
+		<!-- contact area END -->
+    </div>
+    <!-- Content END-->
+
+	<!-------------how may we help you--------------->
+			<div id="delayedDivFaq" class="section-area section-sp2 bg-fix ovbl-dark join-bx" style="background-image:url(static/assets/timmins_images/home_slides/slide_1.jpg);display:none;">
+                <div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center heading-bx text-white">
+							<h2 class="title-head m-b0">How may we <span>help you?</span></h2>
+							<p class="m-b0">Stay future-ready with Timmins Training, Staffing & Consulting solutions in Niche Technology.</p>
+						</div>
+						<div class="col-md-6">
+							<div class="why-chooses-bx ">
+								<div class="ttr-accordion m-b30 faq-bx" id="accordion1">
+									<div class="panel">
+										<div class="acod-head">
+											<h6 class="acod-title">
+												<a data-toggle="collapse" href="#faq1" class="collapsed" data-parent="#faq1">
+												Looking to onboard fresh graduates in various IT domains including Embedded Linux, Machine Learning, Scripting, and Embedded Android Software? </a> </h6>
+										</div>
+										<div id="faq1" class="acod-body collapse">
+											<div class="acod-content">Our personalized IT training programs across domains ensure that the top tech talent you’ve just hired fit into your workplace culture, understand your business, and take on their specific job roles even in high-demand environments.</div>
+										</div>
+									</div>
+									<div class="panel">
+										<div class="acod-head">
+											<h6 class="acod-title">
+												<a data-toggle="collapse" href="#faq2" class="collapsed" data-parent="#faq2">
+												Require DDR5/LPDDR5 Architecture training that enables your engineers to work on new products?</a> </h6>
+										</div>
+										<div id="faq2" class="acod-body collapse">
+											<div class="acod-content">Our subject matter experts develop and deliver exclusive LIVE training programs in the latest on DDR5/LPDDR5 Architecture using a product-specific approach.</div>
+										</div>
+									</div>
+									<div class="panel">
+										<div class="acod-head">
+											<h6 class="acod-title">
+												<a data-toggle="collapse"  href="#faq3" class="collapsed"  data-parent="#faq3">
+												Want to learn about the latest video codecs from an industry expert who has written books on coding?</a> </h6>
+										</div>
+										<div id="faq3" class="acod-body collapse">
+											<div class="acod-content">Sign up for our video coding standard Versatile Video Coding (VVC – H.266) program by the author of some of the most popular books and research papers on coding.</div>
+										</div>
+									</div>
+									<div class="panel">
+										<div class="acod-head">
+											<h6 class="acod-title">
+												<a data-toggle="collapse"  href="#faq4" class="collapsed"  data-parent="#faq4">
+												Starting a live 5G network and looking to onboard your engineers to handle complex 5G infrastructure?</a> </h6>
+										</div>
+										<div id="faq4" class="acod-body collapse">
+											<div class="acod-content">Designed by global tech leaders, our 5G network onboarding program equips your engineering teams to work on a live 5G technology network and solve real-time challenges.</div>
+										</div>
+									</div>
+									<div class="panel">
+										<div class="acod-head">
+											<h6 class="acod-title">
+												<a data-toggle="collapse"  href="#faq5" class="collapsed"  data-parent="#faq5">
+												Want to bridge the gap between your degree and your dream job in Software Programming?</a> </h6>
+										</div>
+										<div id="faq5" class="acod-body collapse">
+											<div class="acod-content">Our basic to advanced level courses in Python, C++, Rust, and other programming languages equip you to confidently take up any software engineering job.</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="video-bx">
+								<img src="static/assets/timmins_images/how_may_we_help_you.jpg" alt=""/>
+							</div>
+						</div>
+
+					</div><br>
+					<div class="text-center">
+
+						<form action="/book_a_demo" method="post"><button class="btn" id="book_a_demo2">Book a Free Demo</button></form>
+						</div>
+					<script>
+							var email = sessionStorage.getItem("signin_mail")
+							var user_name = sessionStorage.getItem("user_name")
+						  	var arrayValue = [email, user_name]
+							document.getElementById("book_a_demo2").setAttribute("name","arrayValue")
+							document.getElementById("book_a_demo2").setAttribute("value",arrayValue)
+					</script>
+
+				</div>
+			</div><br><br>
+			<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivFaq").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+<!-- how may we help you end -->
+
+
+<!------our clients slide------>
+<div id="delayedDivClients" style="display:none;">
+<h2 class="title-head" style="text-align:center;">Our<span> Clients</span></h2>
+<p style="text-align:center;">Supporting Enterprises Around The Globe</p>
+
+<div class="brand-carousel section-padding owl-carousel ">
+
+    <div class="single-logo">
+      <img src="static/assets/timmins_images/clients_new/cisco2.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/dbs1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/enquest1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/epsilon.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/fuji1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/hong1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/maxis1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/moto1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/olx1.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/qualcomm.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/u_mobile.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/telkomsel.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/infineon.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/webe.png" alt="">
+    </div>
+
+    <div class="single-logo">
+        <img src="static/assets/timmins_images/clients_new/tm.png" alt="">
+    </div>
+
+	<div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/telkomsat.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/ytl.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/indosat.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/singtel.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/telkom_metra.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/digi.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/mimos.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/eco.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/dxc.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/unikl.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/mf.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/gmi.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/elnusa.jpg" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/celcom.png" alt="">
+    </div>
+
+    <div class="single-logo-two">
+        <img src="static/assets/timmins_images/clients_new/micost.png" alt="">
+    </div>
+
+</div>
+</div>
+<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivClients").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+
+<script>
+    $('.brand-carousel').owlCarousel({
+  loop:true,
+  margin:30,
+  autoplaySpeed: 1500,
+  navSpeed: 1500,
+  paginationSpeed: 1500,
+  slideSpeed: 1000,
+  autoplay:true,
+  autoplayTimeout: 3000,
+  responsive:{
+    0:{
+      items:3
+    },
+    600:{
+      items:5
+    },
+    1000:{
+      items:10
+    }
+  }
+})
+
+</script>
+
+
+<!------our clients slide end------>
+	<!---====OUR CLIENTS END====----->
+
+	<!-- Footer ==== -->
+    <footer>
+        <div class="footer-top" id="delayedDivFooter" style="display:none;">
+			<br>
+            <div class="container">
+                <div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
+                            <h5 class="footer-title">About</h5>
+							<p class="text-capitalize m-b20">Timmins is a knowledge-sharing enterprise that creates world-class training, consulting & staffing experiences in niche technology.</p>
+                            <div class="subscribe-form m-b20">
+								<form class="subscription-form" action="#" method="post">
+									<div class="ajax-message"></div>
+									<div class="input-group">
+
+										<span class="input-group-btn">
+											<!--<a href="{{url_for('static',filename='company_profile.pdf')}}" download="company_profile.pdf" class="btn">Download Company Profile</a>-->
+											<a href="/download" class="btn">Download Company Profile</a>
+										</span>
+									</div>
+								</form>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-12 col-lg-5 col-md-7 col-sm-12">
+						<div class="row">
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Quick links</h5>
+									<ul>
+										<li><a href="/">Home</a></li>
+										<li><a href="/all_courses">Courses</a></li>
+										<li><a href="/event">Training Calendar</a></li>
+										<li><a href="/why_timmins">Why Timmins</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Featured articles</h5>
+									<ul>
+										<li><a href="/blogs_timmins">Blogs</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Our offices</h5>
+									<ul>
+										<li><a href="#" class="inactiveLink">Canada</a></li>
+										<li><a href="#" class="inactiveLink">Malaysia</a></li>
+										<li><a href="#" class="inactiveLink">Indonesia</a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" id="delayedDivFooterend" style="display:none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="#" style="font-size:10px;">&#169; 2021 Timmins Training Consulting Inc. All rights reserved</a></div>
+                </div>
+            </div>
+        </div>
+<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivFooter").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+<script>
+			        function showDelayedContent() {
+			        document.getElementById("delayedDivFooterend").style.display = "block";
+    				}
+
+				    setTimeout(showDelayedContent, 5500);
+				</script>
+
+
+    </footer>
+
+	<!--<div id="footerPart"></div>-->
+    <!-- Footer END ==== -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+</div>
+
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+<script src="static/assets/js/reveal.js"></script>
+<!--<script src="static/assets/js/common_header_footer.js"></script>-->
+<!--<script src='static/assets/vendors/switcher/switcher.js'></script>-->
+<!-- Revolution JavaScripts Files -->
+<script src="static/assets/vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="static/assets/vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<!-- Slider revolution 5.0 Extensions  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script src="static/assets/vendors/revolution/js/extensions/revolution.extension.video.min.js"></script>
+<script>
+jQuery(document).ready(function() {
+	var ttrevapi;
+	var tpj =jQuery;
+	if(tpj("#rev_slider_486_1").revolution == undefined){
+		revslider_showDoubleJqueryError("#rev_slider_486_1");
+	}else{
+		ttrevapi = tpj("#rev_slider_486_1").show().revolution({
+			sliderType:"standard",
+			jsFileLocation:"static/assets/vendors/revolution/js/",
+			sliderLayout:"fullwidth",
+			dottedOverlay:"none",
+			delay:9000,
+			navigation: {
+				keyboardNavigation:"on",
+				keyboard_direction: "horizontal",
+				mouseScrollNavigation:"off",
+				mouseScrollReverse:"default",
+				onHoverStop:"on",
+				touch:{
+					touchenabled:"on",
+					swipe_threshold: 75,
+					swipe_min_touches: 1,
+					swipe_direction: "horizontal",
+					drag_block_vertical: false
+				}
+				,
+				arrows: {
+					style: "uranus",
+					enable: true,
+					hide_onmobile: false,
+					hide_onleave: false,
+					tmp: '',
+					left: {
+						h_align: "left",
+						v_align: "center",
+						h_offset: 10,
+						v_offset: 0
+					},
+					right: {
+						h_align: "right",
+						v_align: "center",
+						h_offset: 10,
+						v_offset: 0
+					}
+				},
+				
+			},
+			viewPort: {
+				enable:true,
+				outof:"pause",
+				visible_area:"80%",
+				presize:false
+			},
+			responsiveLevels:[1240,1024,778,480],
+			visibilityLevels:[1240,1024,778,480],
+			gridwidth:[1240,1024,778,480],
+			gridheight:[768,600,600,600],
+			lazyType:"none",
+			parallax: {
+				type:"scroll",
+				origo:"enterpoint",
+				speed:400,
+				levels:[5,10,15,20,25,30,35,40,45,50,46,47,48,49,50,55],
+				type:"scroll",
+			},
+			shadow:0,
+			spinner:"off",
+			stopLoop:"off",
+			stopAfterLoops:-1,
+			stopAtSlide:-1,
+			shuffle:"off",
+			autoHeight:"off",
+			hideThumbsOnMobile:"off",
+			hideSliderAtLimit:0,
+			hideCaptionAtLimit:0,
+			hideAllCaptionAtLilmit:0,
+			debugMode:false,
+			fallbacks: {
+				simplifyAll:"off",
+				nextSlideOnWindowFocus:"off",
+				disableFocusListener:false,
+			}
+		});
+	}
+});	
+</script>
+<script>
+	var alertMessage = "{{alert_message}}"
+	if (alertMessage){
+		alert(alertMessage);
+	}
+</script>
+</body>
+
+</html>

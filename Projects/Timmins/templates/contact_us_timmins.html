@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- META ============================================= -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+
+	<!-- DESCRIPTION -->
+	<meta name="description" content="" />
+
+	<!-- OG -->
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
+
+	<!-- FAVICONS ICON ============================================= -->
+	<link rel="icon" href="static/assets/images/timmins_favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="static/assets/images/timmins_favicon.png" />
+
+
+	<!-- PAGE TITLE HERE ============================================= -->
+	<title>Timmins: Contact-us</title>
+    {{seo_value[0] | safe}}
+
+	<!-- MOBILE SPECIFIC ============================================= -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--[if lt IE 9]>
+	<script src="static/assets/js/html5shiv.min.js"></script>
+	<script src="static/assets/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- All PLUGINS CSS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/assets.css">
+
+	<!-- TYPOGRAPHY ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/typography.css">
+
+	<!-- SHORTCODES ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/shortcodes/shortcodes.css">
+
+	<!-- STYLESHEETS ============================================= -->
+	<link rel="stylesheet" type="text/css" href="static/assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/css/others.css">
+	<link class="skin" rel="stylesheet" type="text/css" href="static/assets/css/color/color-1.css">
+
+</head>
+<body id="bg">
+<div id="loading-icon-bx"></div>
+<div class="page-wraper">
+   <script>
+   	function hideLoadingIcon() {
+        var loadingIcon = document.getElementById("loading-icon-bx");
+        if (loadingIcon) {
+          loadingIcon.style.display = "none";
+        }
+    }
+    setTimeout(hideLoadingIcon, 1000);
+
+   var sessionEmail = sessionStorage.getItem("signin_mail");
+   var sessionUserName = sessionStorage.getItem("user_name");
+   if ('{{user_email}}' == sessionEmail){
+      if (sessionUserName == null){
+        if ('{{user_name}}' =="admin"){
+         sessionStorage.setItem("user_name",'{{user_name}}');
+      } else {
+          sessionStorage.setItem("user_name",'{{user_name}}');
+          recommendedArray = []
+          {% for recommended_loop in recommended_courses %}
+            recommended = []
+            recommended.push('{{recommended_loop[0]}}')
+            recommended.push('{{recommended_loop[1]}}')
+            recommended.push('{{recommended_loop[2]}}')
+
+            recommendedArray.push(recommended)
+          {% endfor %}
+          sessionStorage.setItem("recommended_courses",JSON.stringify(recommendedArray));
+      }
+      }
+   }
+</script>
+<div class="page-wraper">
+
+	<!-- Header Top ==== -->
+      <header class="header rs-nav header-transparent">
+  <div class="top-bar">
+     <div class="container">
+        <div class="row d-flex justify-content-between">
+           <div class="topbar-left">
+
+           </div>
+           <div class="topbar-right">
+              <ul id="signinLi">
+                 <li><form action="/book_a_demo" method="post"><button style="font-weight:800; border:none; background-color:transparent; color:white;" id="book_a_demo1">Book a demo</button></form></li>
+                 <!--<li><a href="/login" style="font-weight:800;">Login</a></li>-->
+
+              </ul>
+           </div>
+			<script>
+					var email = sessionStorage.getItem("signin_mail")
+					var user_name = sessionStorage.getItem("user_name")
+					var arrayValue = [email, user_name]
+					document.getElementById("book_a_demo1").setAttribute("name","arrayValue")
+					document.getElementById("book_a_demo1").setAttribute("value",arrayValue)
+			</script>
+        </div>
+     </div>
+  </div>
+
+  <div class="sticky-header navbar-expand-lg">
+          <div class="menu-bar clearfix">
+              <div class="container clearfix">
+           <!-- Header Logo ==== -->
+           <div class="menu-logo">
+              <a href="/"><img src="static/assets/timmins_images/logo.png" alt=""></a>
+           </div>
+           <!-- Mobile Nav Button ==== -->
+                  <button class="navbar-toggler collapsed menuicon justify-content-end" type="button" data-toggle="collapse" data-target="#menuDropdown" aria-controls="menuDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span></span>
+              <span></span>
+              <span></span>
+           </button>
+           <!-- Author Nav ==== -->
+
+           <!-- Search Box ==== -->
+
+           <!-- Navigation Menu ==== -->
+                  <div class="menu-links navbar-collapse collapse justify-content-start" id="menuDropdown">
+
+                      <ul class="nav navbar-nav" id="second_nav">
+                 <li><a href="javascript:;">Courses <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+						<li><a href="/all_courses">All Courses</a></li>
+               {% for categories in category %}
+						<li><a href="javascript:;" class="dropdown_for_menu"><form action="/individual_category_page" method="post"><button name="category_name" value="{{categories[1]}}" style="border:none;background-color:transparent; padding:0px;">{{categories[1]}}</button></form><i class="fa fa-angle-right"></i></a>
+                          <ul class="sub-menu" id="scroll_for_courses">
+                  {% for courses in course %}
+                     {% if courses[1] == categories[0] %}
+                             <li>
+                       <form action="/course_details" method="post">
+                                <button name="course_id" class="dropdown_for_menu" id="dropdown_id" value="{{courses[0]}}">{{courses[2]}}</button>
+                        </form>
+                             </li>
+                     {% endif %}
+                     {% endfor %}
+                          </ul>
+                       </li>
+                {% endfor %}
+                    </ul>
+                 </li>
+                  <li><a href="#" class="dropdown_for_menu">Certification Programs <i class="fa fa-chevron-down"></i></a>
+					<ul class="sub-menu">
+						{% for certification_courses_loop in certification_courses %}
+						<li onmouseover="this.style.backgroundColor='#ffd500';" onmouseout="this.style.backgroundColor='white';">
+							<form action="/certification" method="post">
+								<input name="email" class="inputTag" type="hidden">
+								<button class="certification-button" name="certification_value" value="{{certification_courses_loop[0]}}" style="border:none;background-color:transparent;font-size:15px; margin-left:6%;" id="loop_value">
+									{{certification_courses_loop[1]}}
+								</button>
+							</form>
+						</li>
+							<script>
+								window.addEventListener('DOMContentLoaded', function() {
+								  var email = sessionStorage.getItem('signin_mail');
+								  var elements = document.getElementsByClassName('inputTag');
+
+								  for (var i = 0; i < elements.length; i++) {
+									elements[i].value = email;
+								  }
+								});
+							</script>
+						{% endfor %}
+					</ul>
+            	  </li>
+                 <li><a href="/event">Training Calendar</a></li>
+				<!--<li><a href="#" class="dropdown_for_menu">Services <i class="fa fa-chevron-down"></i></a>
+                    <ul class="sub-menu">
+                      <li><a href="/cyber_security">Cyber Security</a></li>
+                      <li><a href="/web_development">Web Development</a></li>
+						<li><a href="/app_development">Mobile App Development</a></li>
+                    </ul>
+                  </li>-->
+                 <li class="#"><a href="/why_timmins">Why Timmins</a></li>
+				<!--<li class="#"><a href="/admin_panel">Admin Panel</a></li>-->
+                 <li class="nav-dashboard"><form action="/contact_us_timmins" method="post"><button id="contact_us_timmins1" style="background-color:transparent;border:none;">Contact</button></form></li>
+               </ul>
+
+               </div>
+				  <script>
+							var email = sessionStorage.getItem("signin_mail")
+							var user_name = sessionStorage.getItem("user_name")
+						  	var arrayValue = [email, user_name]
+							document.getElementById("contact_us_timmins1").setAttribute("name","arrayValue")
+							document.getElementById("contact_us_timmins1").setAttribute("value",arrayValue)
+					</script>
+           <!-- Navigation Menu END -->
+              </div>
+          </div>
+      </div>
+  </header>
+	<script>
+       var email = sessionStorage.getItem("signin_mail")
+       if (email != null){
+          var user_name = sessionStorage.getItem("user_name");
+
+          if (user_name == "admin"){
+             var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/admin_panel");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email_person");
+            loginButtonTag.setAttribute("value","admin");
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "Admin Panel";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      } else{
+         var nameLi = document.createElement("li");
+           var namePTag = document.createElement("p");
+           namePTag.style.fontWeight = "800";
+           namePTag.style.color = "white";
+           namePTag.innerHTML = "Hi," + " " + user_name;
+           nameLi.append(namePTag);
+         document.getElementById("signinLi").appendChild(nameLi);
+
+             var loginLi = document.createElement("li");
+          var loginFormTag = document.createElement("form");
+          loginFormTag.setAttribute("action","/profile");
+          loginFormTag.setAttribute("method","post");
+            var loginButtonTag = document.createElement("button");
+            loginButtonTag.setAttribute("name","email");
+            loginButtonTag.setAttribute("value",email);
+            loginButtonTag.style.border = "none";
+            loginButtonTag.style.backgroundColor = "transparent";
+            loginButtonTag.innerHTML = "User Profile";
+            loginFormTag.append(loginButtonTag);
+          loginLi.append(loginFormTag);
+        document.getElementById("second_nav").appendChild(loginLi);
+
+        var logoutLi = document.createElement("li");
+            var logoutFormTag = document.createElement("form");
+            logoutFormTag.setAttribute("action","/logout")
+               var logoutButtonTag = document.createElement("button");
+               logoutButtonTag.setAttribute("onclick","logoutFun()");
+               logoutButtonTag.style.border = "none";
+               logoutButtonTag.style.backgroundColor = "transparent";
+               logoutButtonTag.innerHTML = "Logout";
+               logoutFormTag.append(logoutButtonTag);
+             logoutLi.append(logoutFormTag);
+        document.getElementById("second_nav").appendChild(logoutLi);
+      }
+       }  else {
+           var loginLi = document.createElement("li");
+           var loginATag = document.createElement("a");
+           loginATag.setAttribute("href","/login");
+           loginATag.style.fontWeight = "800";
+           loginATag.innerHTML = "Login";
+           loginLi.append(loginATag);
+              document.getElementById("signinLi").appendChild(loginLi);
+       }
+        function logoutFun(){
+            sessionStorage.removeItem('signin_mail');
+            sessionStorage.removeItem('user_name');
+            sessionStorage.removeItem('recommended_courses');
+
+        }
+ 	</script>
+
+   <!-- Header Top END ==== -->
+
+
+    <!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="page-banner ovbl-dark" style="background-image:url(static/assets/timmins_images/handshake_partner1.jpg);">
+            <div class="container">
+                <div class="page-banner-entry">
+                    <h1 class="text-white">Contact Us</h1>
+				 </div>
+            </div>
+        </div>
+
+
+        <!-- inner page banner -->
+        <div class="page-banner contact-page section-sp2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 m-b30">
+                        <div class="bg-primary text-white contact-info-bx">
+                            <p style="color:yellow">CUSTOM IT TRAINING, CONSULTING & STAFFING</p>
+                            <h2 class="m-b10 title-head">Tailored Training for Your Success. Get in Touch Now!</h2>
+                            <p>
+                            Interested in one of our services? We'd love to hear from you! Please fill out the form below with your details, and our dedicated Helpdesk representative will reach out to you within the next 48 hours.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7">
+                <form class="contact-bx " action="/contact_details_update" method="post" onsubmit="return contactUsValidateForm()">
+
+                   <div class="heading-bx left">
+                       <h2 class="title-head">Get In <span>Touch</span></h2>
+                       <p>Let us know how to get back to you !</p>
+                   </div>
+                   <div class="row placeani">
+                       <div class="col-lg-6">
+                           <div class="form-group">
+                               <label>First Name <span class="required">*</span></label>
+                               <div class="input-group">
+                                   <input id="first_name" name="first_name" value="{{firstname}}" type="text"  class="form-control valid-character">
+                                   <!--<div id="first_name_warning" style="display:none;color:red;">Please enter your first name</div>-->
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-lg-6">
+                           <div class="form-group">
+                               <label>Last Name <span class="required">*</span></label>
+                               <div class="input-group">
+                                   <input id="last_name" name="last_name" value="{{lastname}}" type="text" required class="form-control valid-character">
+                                   <!--<div id="last_name_warning" style="display:none;color:red;">Please enter your last name</div>-->
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label>Email <span class="required">*</span></label>
+                               <div class="input-group">
+                                   <input id="email" name="email" value="{{email_id}}" type="email" required class="form-control">
+                                   <!--<div id="email_warning" style="display:none;color:red;">Please enter your email</div>-->
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <label>How can we help <span class="required">*</span></label>
+                           <select id="select_option" name="selected_option1" onchange="checkCountrySelection()">
+                               <option selected disabled value="">Select Option</option>
+                               <option value="Schedule a call- Training Solution">Schedule a call- Training Solution</option>
+                               <option value="Schedule a call- Staffing Solutions">Schedule a call- Staffing Solutions</option>
+                               <option value="Schedule a call- Software Consulting & Development Solutions">Schedule a call- Software Consulting & Development Solutions</option>
+                               <option value="Book a Free Demo- Training Trial Session">Book a Free Demo- Training Trial Session</option>
+                               <option value="Book a Free Demo- Training Customization Process Presentation">Book a Free Demo- Training Customization Process Presentation</option>
+                               <option value="Free Consultation- Corporate Training Needs Assessment">Free Consultation- Corporate Training Needs Assessment</option>
+                               <option value="Free Consultation- IT Staffing Needs Assessment">Free Consultation- IT Staffing Needs Assessment</option>
+                               <option value="Free Consultation- Niche Software Needs Assessment">Free Consultation- Niche Software Needs Assessment</option>
+                               <option value="Request For more information">Request For more information</option>
+                               <option value="Connect with us-Other">Connect with us-Other</option>
+                           </select>
+                           <!--<div id="dropdown_warning" style="display:none;color:red;">Please select your dropdown</div>-->
+                       </div>
+                        <script>
+                            function checkCountrySelection() {
+                              var dropDownSelect = document.getElementById('select_option');
+                              var submitButton = document.getElementById('submit');
+
+                              if (dropDownSelect.value === "") {
+                                submitButton.disabled = true;
+                              } else {
+                                submitButton.disabled = false;
+                              }
+                            }
+                      </script>
+                       <div class="col-lg-12">
+                           <div class="form-group"><br>
+                               <label>We would love to hear from you!</label>
+                                <textarea name="message" rows="4" class="form-control" required placeholder="Your Message" id="message"></textarea>
+                               <!--<div id="message_warning" style="display:none;color:red;">Please enter your message</div>-->
+                           </div>
+                       </div>
+
+                       <div class="col-lg-12 m-b30">
+                     <button name="submit" type="submit" value="Submit" class="btn button-md" id="submit" disabled>Submit</button><!-- onclick="sendFun()"-->
+                        </div>
+                   </div>
+                </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+    </div>
+
+    <!-- Content END-->
+    <!-- our offices ==== -->
+            <div class="section-area bg-gray section-sp2 choose-bx">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 heading-bx text-center">
+                            <h2 class="title-head text-uppercase m-b0">OUR OFFICES</h2><br>
+                            <h4>We are Open for Business!</h4>
+                            <p>Timmins caters to corporates, universities, startups, and individuals around the globe.</p>
+                        </div>
+                    </div>
+                    <div class="row choose-bx-in">
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="service-bx">
+                                <div class="action-box">
+                                    <img src="static/assets/timmins_images/our_offices/Toronto-office.jpg" alt="" style="height:250px" >
+                                </div>
+                                <div class="info-bx text-center">
+                                    <div class="">
+                                    </div>
+
+                                    <p style="color:" >Reidmount Avenue, Suite #1203, Toronto, Ontario, M1S 4V3 CANADA</p><br>
+                                    <p  style="color:">toronto@timmins-consulting.com</p>
+                                    <p  style="color:"><b>+1 647 547 8446</b></p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="service-bx">
+                                <div class="action-box">
+                                    <img src="static/assets/timmins_images/our_offices/KL-Office.jpg" alt="" style="height:250px">
+                                </div>
+                                <div class="info-bx text-center">
+                                    <div class=>
+                                    </div>
+                                    <p style="color:" >C-11-01 Komplek Danau Kota,
+                                    Taman Zeta@Zetapark,
+                                    67, Taman Ibu Kota,
+                                    Setapak 53300, KL
+                                    MALAYSIA</p>
+                                    <p  style="color:">kl@timmins-consulting.com</p>
+                                    <p  style="color:"><b>+60 111 667 4727</b></p>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="service-bx m-b0">
+                                <div class="action-box">
+                                    <img src="static/assets/timmins_images/our_offices/Jakarta-office.jpg" alt="" style="height:250px">
+                                </div>
+                                <div class="info-bx text-center">
+                                    <div class="">
+                                    </div>
+                                    <p style="color:" >Graha Mampang Lt. 3 Suite 305
+                                    JI. Mampang Prapatan Raya Kav. 100
+                                    Jakarta Selatan 12760
+                                    INDONESIA</p>
+                                    <p  style="color:">jk@timmins-consulting.com</p>
+                                    <p  style="color:"><b>+62 815 1740 3741</b></p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Why Choose END ==== -->
+    <!----FAQ START--->
+         <div class="section-area section-sp2 bg-fix ovbl-dark join-bx" style="background-image:url(static/assets/timmins_images/home_slides/slide_1.jpg);">
+                <div class="container">
+               <div class="row">
+                  <div class="col-md-12 text-center heading-bx text-white">
+                     <h2 class="title-head m-b0">Frequently<span> Asked Questions</span></h2>
+                      <p>GET TO KNOW OUR SERVICES</p>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-12">
+                     <div class="why-chooses-bx ">
+                        <div class="ttr-accordion m-b30 faq-bx" id="accordion1">
+                           <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse" href="#faq1" class="collapsed" data-parent="#faq1">
+                                    1. Can Timmins solutions be customized for my organization?</a> </h6>
+                              </div>
+                              <div id="faq1" class="acod-body collapse">
+                                 <div class="acod-content">Yes, Timmins understands that every business is unique — with different people, work cultures, and goals. Hence, we are careful to offer only highly relevant and not ‘off-the-shelf’ or ‘general-purpose’ training, consulting, and staffing solutions. We work with your team every step of the way to ensure we meet all your upskilling, reskilling, hiring, onboarding, and upgrading needs in niche technology. Our customization process includes a needs assessment for your business.</div>
+                              </div>
+                           </div>
+                           <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse" href="#faq2" class="collapsed" data-parent="#faq2">
+                                    2. Where does Timmins operate?</a> </h6>
+                              </div>
+                              <div id="faq2" class="acod-body collapse">
+                                 <div class="acod-content">Timmins operates around the globe. Since our launch in 2015, we have catered to top global brands in the US, UK, Canada, Singapore, France, India, Israel, Malaysia, Indonesia, and China. Connect with us on +1 (888) 456 7890 for more details.</div>
+                              </div>
+                           </div>
+                           <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse"  href="#faq3" class="collapsed"  data-parent="#faq3">
+                                    3. Does Timmins offer on-site training, consulting, and staffing services?</a> </h6>
+                              </div>
+                              <div id="faq3" class="acod-body collapse">
+                                 <div class="acod-content">Timmins prioritizes safety. In view of the Covid-19 pandemic, we are currently offering only LIVE online training and consulting services to remote locations. We do, however, continue to offer on-site staffing services across the world, subject to the current national and international guidelines on travel, work, and other related Covid-19 rules and regulations.</div>
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-6 col-sm-12">
+                      <div class="why-chooses-bx ">
+                        <div class="ttr-accordion m-b30 faq-bx" id="accordion1">
+                           <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse"  href="#faq4" class="collapsed"  data-parent="#faq4" >
+                                    4.What is Timmins refund policy?</a> </h6>
+                              </div>
+                              <div id="faq4" class="acod-body collapse">
+                                 <div class="acod-content">Timmins values customer satisfaction. If you are not satisfied with any of our services, you can contact us at helpdesk@timmins-consulting.com to request a refund. After approval of your request, Timmins will ensure you receive a full refund within 30 days from the date of request. Please note: All requests for refunds are subject to the sole discretion of Timmins Training Consulting.</div>
+                              </div>
+                           </div>
+                           <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse"  href="#faq5" class="collapsed"  data-parent="#faq5">
+                                    5.Is Timmins only a training provider?</a> </h6>
+                              </div>
+                              <div id="faq5" class="acod-body collapse">
+                                 <div class="acod-content">Timmins is not just a training provider, but a niche technology partner that supports businesses across the globe to hire, reskill, upskill, hire, onboard, and upgrade in the latest technologies. We strive to always offer our clients world-class training solutions as well as premium staffing and consulting services in niche technology.</div>
+                              </div>
+
+                           </div>
+                            <div class="panel">
+                              <div class="acod-head">
+                                 <h6 class="acod-title">
+                                    <a data-toggle="collapse" href="#faq6" class="collapsed" data-parent="#faq6">
+                                    6. Has Timmins worked with diverse people groups?</a> </h6>
+                              </div>
+                              <div id="faq6" class="acod-body collapse">
+                                 <div class="acod-content">At Timmins, we ensure that we develop all our training, consulting, and staffing solutions keeping your people, business, and workplace culture in mind. We strongly believe that people come before process and that diversity triggers innovation. This philosophy is reflected in our own team, which comprises subject matter experts from diverse backgrounds across borders.</div>
+                              </div>
+                           </div>
+                  </div>
+
+
+               </div><br>
+            </div>
+         </div>
+    </div>
+         </div>
+    <!-- Content END-->
+<!-- Footer ==== -->
+    <footer>
+        <div class="footer-top">
+			<br>
+            <div class="container">
+                <div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12 footer-col-4">
+                        <div class="widget">
+                            <h5 class="footer-title">About</h5>
+							<p class="text-capitalize m-b20">Timmins is a knowledge-sharing enterprise that creates world-class training, consulting & staffing experiences in niche technology.</p>
+                            <div class="subscribe-form m-b20">
+								<form class="subscription-form" action="#" method="post">
+									<div class="ajax-message"></div>
+									<div class="input-group">
+
+										<span class="input-group-btn">
+											<a href="/download" class="btn">Download Company Profile</a>
+										</span>
+									</div>
+								</form>
+							</div>
+                        </div>
+                    </div>
+					<div class="col-12 col-lg-5 col-md-7 col-sm-12">
+						<div class="row">
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Quick links</h5>
+									<ul>
+										<li><a href="/">Home</a></li>
+										<li><a href="/all_courses">Courses</a></li>
+										<li><a href="/event">Events</a></li>
+										<li><a href="/why_timmins">Why Timmins</a></li>
+
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Featured articles</h5>
+									<ul>
+										<li><a href="/blogs_timmins">Blogs</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-4 col-lg-4 col-md-4 col-sm-4">
+								<div class="widget footer_widget">
+									<h5 class="footer-title">Our offices</h5>
+									<ul>
+										<li><a href="#" class="inactiveLink">Canada</a></li>
+										<li><a href="#" class="inactiveLink">Malaysia</a></li>
+										<li><a href="#" class="inactiveLink">Indonesia</a></li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center"> <a target="_blank" href="#" style="font-size:10px;">&#169; 2021 Timmins Training Consulting Inc. All rights reserved</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer END ==== -->
+    <!-- scroll top button -->
+    <button class="back-to-top fa fa-chevron-up" ></button>
+
+<!-- External JavaScripts -->
+<script src="static/assets/js/jquery.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/popper.min.js"></script>
+<script src="static/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="static/assets/vendors/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="static/assets/vendors/magnific-popup/magnific-popup.js"></script>
+<script src="static/assets/vendors/counter/waypoints-min.js"></script>
+<script src="static/assets/vendors/counter/counterup.min.js"></script>
+<script src="static/assets/vendors/imagesloaded/imagesloaded.js"></script>
+<script src="static/assets/vendors/masonry/masonry.js"></script>
+<script src="static/assets/vendors/masonry/filter.js"></script>
+<script src="static/assets/vendors/owl-carousel/owl.carousel.js"></script>
+<script src="static/assets/js/functions.js"></script>
+<script src="static/assets/js/contact.js"></script>
+<script src='../../www.google.com/recaptcha/api.js'></script>
+<script>
+    function contactUsValidateForm(){
+        alert('Thank you for contacting us! We have received your message and our team will get back to you soon.')
+    }
+</script>
+
+</body>
+
+
+</html>
